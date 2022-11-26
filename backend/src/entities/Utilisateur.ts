@@ -12,6 +12,14 @@ export class Utilisateur {
   @Column("varchar", { name: "prenom", length: 50 })
   prenom: string;
 
+  @Column("varchar", {
+    name: "fonction",
+    nullable: true,
+    length: 255,
+    default: () => "'utilisateur'",
+  })
+  fonction: string | null;
+
   @Column("varchar", { name: "quartier", length: 50 })
   quartier: string;
 
@@ -21,11 +29,11 @@ export class Utilisateur {
   @Column("varchar", { name: "username", length: 50 })
   username: string;
 
-  @Column("text", { name: "mdp" })
-  mdp: string;
-
   @Column("varchar", { name: "phone", nullable: true, length: 15 })
   phone: string | null;
+
+  @Column("text", { name: "mdp" })
+  mdp: string;
 
   @Column("varchar", { name: "path_photo", nullable: true, length: 255 })
   pathPhoto: string | null;
