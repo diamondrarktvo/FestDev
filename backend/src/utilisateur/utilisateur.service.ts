@@ -9,13 +9,53 @@ import { CreateUtilisateurDto, ParamUtilisateurDto,
 export class UtilisateurService {
     constructor(
         @InjectRepository(Utilisateur)
-        private utilisateurRepository: Repository<Utilisateur>
-    ) {}
+        private utilisateurRepository: Repository<Utilisateur>,
+    ) { }
 
-    // private async generateQrCode(username: string, ) {
-    //     const qrcode = require('qrcode');
-    //     qrcode.
-    // }
+    private async encrypt(text: string) {
+        const crypto = require('crypto');
+        const algorithm = 'aes-256-cbc';
+        const key = crypto.randomBytes(32);
+        const iv = crypto.randomBytes(16);
+
+        let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
+        let encrypted = cipher.update(text);
+        encrypted = Buffer.concat([encrypted, cipher.final()]);
+        return JSON.stringify({ 
+            iv: iv.toString('hex'),
+            key: key.toString('hex'),
+            encryptedData: encrypted.toString('hex') 
+        });
+    }
+
+    private async decrypt(text: {iv: string, key: string, encryptedData: string}) {
+        const crypto = require('crypto');
+        const algorithm = 'aes-256-cbc';
+
+        let iv = Buffer.from(text.iv, 'hex');
+        let key = Buffer.from(text.key, 'hex');
+        let encryptedText = Buffer.from(text.encryptedData, 'hex');
+        let decipher = crypto.createDecipheriv(algorithm, Buffer.from(key), iv);
+        let decrypted = decipher.update(encryptedText);
+        decrypted = Buffer.concat([decrypted, decipher.final()]);
+        return decrypted.toString();
+   }
+
+    private async generateQrCode(qrname: string, data: string) {
+        const qrcode = require('qrcode');
+        await qrcode.toFile(qrname, data);
+    }
+
+    async updatePathQrCode(pathfile: string, utilisateur_id: number) {
+        await this.utilisateurRepository
+        .createQueryBuilder()
+        .update(Utilisateur)
+        .set({
+            pathQrCode: pathfile
+        })
+        .where(`id=:identifiant`, {identifiant: utilisateur_id})
+        .execute();
+    }
 
     async create(donnees: CreateUtilisateurDto): Promise<void> {
         const response = await this.utilisateurRepository
@@ -32,9 +72,13 @@ export class UtilisateurService {
             mdp: () => "SHA2('"+donnees.password+"', 256)"
         })
         .execute();
-
-        console.log(response['identifiers'][0].id)
-
+        const identifiers = await response['identifiers'][0].id;
+        const cryptData = await this.encrypt(identifiers.toString());
+        const filename = `uploads/qr_code/${Date.now()}.png`;
+        await this.generateQrCode(filename, cryptData);
+        await this.updatePathQrCode(filename, identifiers);
+        // const decryptData = await this.decrypt(JSON.parse(cryptData));
+        // console.log(decryptData);
     }
 
     async findall(): Promise<Utilisateur[]> {

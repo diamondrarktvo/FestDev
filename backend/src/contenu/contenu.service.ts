@@ -12,12 +12,13 @@ export class ContenuService {
         private contenuRepository: Repository<Contenu>
     ) {}
 
-    async create(donnees: CreateContenuDto, admin_id: number): Promise<void> {
+    async create(donnees: CreateContenuDto, photo: string, admin_id: number): Promise<void> {
         await this.contenuRepository
         .createQueryBuilder()
         .insert()
         .into(Contenu)
         .values({
+            photo_1: photo,
             description: donnees.description,
             adminId: admin_id,
             typeId: donnees.type_id

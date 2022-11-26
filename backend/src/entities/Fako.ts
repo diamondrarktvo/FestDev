@@ -6,8 +6,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Place } from "./Place";
 import { Type } from "./Type";
+import { Place } from "./Place";
 import { Utilisateur } from "./Utilisateur";
 
 @Index("Fako_Utilisateur_FK", ["idUtilisateur"], {})
@@ -47,19 +47,19 @@ export class Fako {
   @Column("int", { name: "id_Place" })
   idPlace: number;
 
-  @ManyToOne(() => Place, (place) => place.fakos, {
-    onDelete: "RESTRICT",
-    onUpdate: "RESTRICT",
-  })
-  @JoinColumn([{ name: "id_Place", referencedColumnName: "id" }])
-  idPlace2: Place;
-
   @ManyToOne(() => Type, (type) => type.fakos, {
     onDelete: "RESTRICT",
     onUpdate: "RESTRICT",
   })
   @JoinColumn([{ name: "id_Type", referencedColumnName: "id" }])
   idType2: Type;
+
+  @ManyToOne(() => Place, (place) => place.fakos, {
+    onDelete: "RESTRICT",
+    onUpdate: "RESTRICT",
+  })
+  @JoinColumn([{ name: "id_Place", referencedColumnName: "id" }])
+  idPlace2: Place;
 
   @ManyToOne(() => Utilisateur, (utilisateur) => utilisateur.fakos, {
     onDelete: "RESTRICT",
