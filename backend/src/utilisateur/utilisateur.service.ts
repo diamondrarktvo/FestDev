@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Utilisateur } from 'src/entities/Utilisateur';
 import { Repository } from 'typeorm';
-import { CreateUtilisateurDto, ParamUtilisateurDto } from './dto/utilisateur.dto';
+import { CreateUtilisateurDto, ParamUtilisateurDto, UpdateUtilisateurDto } from './dto/utilisateur.dto';
 
 @Injectable()
 export class UtilisateurService {
@@ -23,7 +23,7 @@ export class UtilisateurService {
             cin: donnees.cin,
             username: donnees.username,
             phone: donnees.phone,
-            mdp: donnees.password
+            mdp: () => "SHA2('"+donnees.password+"', 256)"
         })
         .execute();
     }
@@ -51,6 +51,19 @@ export class UtilisateurService {
         ])
         .where(`u.id=:identifiant`, {identifiant: donnees.utilisateur_id})
         .getRawOne();
+    }
+
+    async update(donnees: UpdateUtilisateurDto, utilisateur_id: number): Promise<void> {
+        await this.utilisateurRepository
+        .createQueryBuilder()
+        .update(Utilisateur)
+        .set({
+            quartier: donnees.quartier,
+            phone: donnees.phone,
+            username: donnees.username
+        })
+        .where(`id=:identifiant`, {identifiant: utilisateur_id})
+        .execute();
     }
 }
 
