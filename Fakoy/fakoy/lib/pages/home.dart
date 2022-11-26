@@ -1,10 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:ui';
-
 import 'package:fakoy/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,7 +32,6 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: Get.width * .85,
                 height: Get.height * .7,
-                margin: EdgeInsets.zero,
                 decoration: BoxDecoration(
                   color: greenLight,
                   borderRadius: BorderRadius.only(
@@ -45,37 +43,38 @@ class _HomePageState extends State<HomePage> {
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
                     Container(
-                      width: Get.height * .4,
-                      height: Get.height * .3,
-                      margin: EdgeInsets.only(top: 50),
-                      padding: EdgeInsets.zero,
-                      child: Stack(
-                          alignment: AlignmentDirectional.centerStart,
-                          children: [
-                            Opacity(
-                              opacity: 0.5,
-                              child: Image.asset(
-                                'assets/logo/logo.png',
-                                color: greenDark,
-                              ),
-                            ),
-                            ClipRect(
-                              child: BackdropFilter(
-                                filter:
-                                    ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                                child: Image.asset('assets/logo/logo.png'),
-                              ),
-                            )
-                          ]),
+                      width: Get.width,
+                      height: Get.height * .45,
+                      margin: EdgeInsets.only(left: 16),
+                      child: Lottie.asset(
+                        'assets/animation/trash_basura.json',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                     Container(
                       margin: EdgeInsets.all(15),
-                      child: Text(
-                        "Bienvenue sur FAKOY . Une application qui vous permet de mieux apprecier votre environement.",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 23,
-                          fontWeight: FontWeight.w500,
+                      child: RichText(
+                        text: TextSpan(
+                          text: "Bienvenue sur FAKOY.",
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Caviar',
+                          ),
+                          children: const <TextSpan>[
+                            TextSpan(
+                              text:
+                                  '\nUne application qui vous permet de mieux apprecier votre environement.',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -141,7 +140,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 width: Get.width * .65,
-                height: Get.height * .3,
+                height: Get.height * .4,
                 margin: EdgeInsets.zero,
                 decoration: BoxDecoration(
                   color: greenLight,
