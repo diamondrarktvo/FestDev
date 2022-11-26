@@ -29,19 +29,6 @@ export class UtilisateurService {
         });
     }
 
-    private async decrypt(text: {iv: string, key: string, encryptedData: string}) {
-        const crypto = require('crypto');
-        const algorithm = 'aes-256-cbc';
-
-        let iv = Buffer.from(text.iv, 'hex');
-        let key = Buffer.from(text.key, 'hex');
-        let encryptedText = Buffer.from(text.encryptedData, 'hex');
-        let decipher = crypto.createDecipheriv(algorithm, Buffer.from(key), iv);
-        let decrypted = decipher.update(encryptedText);
-        decrypted = Buffer.concat([decrypted, decipher.final()]);
-        return decrypted.toString();
-   }
-
     private async generateQrCode(qrname: string, data: string) {
         const qrcode = require('qrcode');
         await qrcode.toFile(qrname, data);
