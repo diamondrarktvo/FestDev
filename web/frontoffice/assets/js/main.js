@@ -1,9 +1,15 @@
+/*options pour fetch*/
+var requestOptions = {
+  method: "GET",
+  redirect: "follow",
+};
+
 /*Partie get pollution air around user*/
-function getPollutionAroundMe() {
+function getPollutionAroundMe(data) {
   $("#content__card_pollution").html(`
             <div class="card__anaratanana">
-            <span class="ville">Antananarivo</span>
-            <span class="pays">Analamanga, Madagascar</span>
+            <span class="ville">${data.city}</span>
+            <span class="pays">${data.state}, ${data.country}</span>
             </div>
 
             <div class="card__taux_pollution">
@@ -35,7 +41,7 @@ function getPollutionAroundMe() {
             </div>
             <div class="card__pourcentage">
                 <span class="pourcentage__span" style="font-weight: 600">
-                59
+                ${data.current.pollution.aqius}
                 </span>
                 <span class="unite__span">US AQI</span>
             </div>
@@ -84,8 +90,33 @@ function getPollutionAroundMe() {
 function reloadGetPollution() {
   $("#content__card_pollution").html(`
     <h5 id="air_quality_button" 
-        onclick="getPollutionAroundMe();"
+        onclick="getPollution();"
         style="cursor: pointer">
         Qualité de l'air autour de moi
     </h5>`);
 }
+
+/*get position user*/
+function getPollution() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getPollutionAroundThisPosition);
+  } else {
+    console.log("Veuillez accepter de trouver votre position!");
+  }
+}
+
+async function getPollutionAroundThisPosition(position) {
+  let { latitude, longitude } = position.coords;
+  $("#content__card_pollution").html(
+    "<p style='text-align:center;'>Loading ...</p>"
+  );
+  await fetch(
+    `https://api.airvisual.com/v2/nearest_city?lat=${latitude}&lon=${longitude}&key=267af3ba-fc10-4cb6-a507-4f1b6e4dc982`,
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((result) => getPollutionAroundMe(result.data))
+    .catch((error) => console.log("error", error));
+}
+
+//267af3ba-fc10-4cb6-a507-4f1b6e4dc982
