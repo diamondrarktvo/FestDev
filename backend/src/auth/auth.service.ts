@@ -34,7 +34,7 @@ export class AuthService {
             'u.id as id', 'u.username as username', 
             'u.fonction as fonction'
         ])
-        .where(`u.username=:username AND u.password=SHA2(:password, 256)`, {
+        .where(`u.username=:username AND u.mdp=SHA2(:password, 256)`, {
             username: donnees.username,
             password: donnees.password
         })
@@ -53,7 +53,7 @@ export class AuthService {
             'a.id as id', 'a.username as username', 
             'a.fonction as fonction'
         ])
-        .where(`a.username=:username AND a.password=SHA2(:password, 256)`, {
+        .where(`a.username=:username AND a.mdp=SHA2(:password, 256)`, {
             username: donnees.username,
             password: donnees.password
         })

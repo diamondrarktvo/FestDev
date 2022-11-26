@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Utilisateur } from 'src/entities/Utilisateur';
 import { Repository } from 'typeorm';
-import { CreateUtilisateurDto, ParamUtilisateurDto, UpdateUtilisateurDto } from './dto/utilisateur.dto';
+import { CreateUtilisateurDto, ParamUtilisateurDto, UpdateUtilisateurDto, UpdateUtilisateurPasswordDto } from './dto/utilisateur.dto';
 
 @Injectable()
 export class UtilisateurService {
@@ -61,6 +61,27 @@ export class UtilisateurService {
             quartier: donnees.quartier,
             phone: donnees.phone,
             username: donnees.username
+        })
+        .where(`id=:identifiant`, {identifiant: utilisateur_id})
+        .execute();
+    }
+
+    async updatePassword(donnees: UpdateUtilisateurPasswordDto, utilisateur_id: number): Promise<void> {
+        const response: Utilisateur = await this.utilisateurRepository
+        .createQueryBuilder('u')
+        .select(['u.id'])
+        .where(`u.id=:identifiant AND u.mdp=SHA2(:password, 256)`, {
+            identifiant: utilisateur_id,
+            password: donnees.lastPassword
+        })
+        .getRawOne();
+
+        if(!response) throw new ForbiddenException('Credentials incorrects !');
+        await this.utilisateurRepository
+        .createQueryBuilder()
+        .update(Utilisateur)
+        .set({
+            mdp: () => "SHA2('"+donnees.newPassword+"', 256)"
         })
         .where(`id=:identifiant`, {identifiant: utilisateur_id})
         .execute();
