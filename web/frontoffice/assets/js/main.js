@@ -1,7 +1,3 @@
-$(document).ready(function () {
-  $("#map").attr("src", "https://www.iqair.com/air-quality-map");
-});
-
 /*options pour fetch*/
 var requestOptions = {
   method: "GET",
@@ -51,7 +47,9 @@ function getPollutionAroundMe(data) {
             </div>
             <div class="card__appreciation">
                 <span class="appreciation__span" style="font-weight: bolder"
-                >Moderate</span
+                >${
+                  data.current.pollution.aqius > 30 ? "Moderate" : "Good"
+                } </span
                 >
                 <span
                 class="taux__span"
