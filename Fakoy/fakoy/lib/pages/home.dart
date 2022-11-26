@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: Get.width * .85,
                 height: Get.height * .7,
+                padding: EdgeInsets.only(left: 15),
                 decoration: BoxDecoration(
                   color: greenLight,
                   borderRadius: BorderRadius.only(
@@ -42,10 +43,9 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    Container(
+                    SizedBox(
                       width: Get.width,
                       height: Get.height * .45,
-                      margin: EdgeInsets.only(left: 16),
                       child: Lottie.asset(
                         'assets/animation/trash_basura.json',
                       ),
@@ -53,13 +53,13 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 10,
                     ),
-                    Container(
-                      margin: EdgeInsets.all(15),
+                    SizedBox(
+                      //   margin: EdgeInsets.all(15),
                       child: RichText(
                         text: TextSpan(
                           text: "Bienvenue sur FAKOY.",
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 27,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Caviar',
@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 width: Get.width * .65,
-                height: Get.height * .4,
+                height: Get.height * .3,
                 margin: EdgeInsets.zero,
                 decoration: BoxDecoration(
                   color: greenLight,
