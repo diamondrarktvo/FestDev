@@ -35,7 +35,7 @@ export class AuthService {
             'u.quartier as quartier', 'u.cin as cin', 'u.username as username',
             'u.phone as phone', 'u.path_photo as path_photo', 
             'u.created_at as created_at', 'u.update_at as updated_at',
-            'u.fonction as fonction'
+            'u.fonction as fonction', 'u.path_qr_code as path_qr_code'
         ])
         .where(`u.username=:username AND u.mdp=SHA2(:password, 256)`, {
             username: donnees.username,
