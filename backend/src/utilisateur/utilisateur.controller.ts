@@ -30,7 +30,7 @@ export class UtilisateurController {
     @UseGuards(AuthGuard('jwtFakoy'))
     @Get('')
     async findUtilisateur(@Request() req: any) {
-        const donnees = {utilisateur_id: +req.user.id};
+        const donnees = {utilisateur_id: +(req.user.id)};
         return await this.utilisateurService.find(donnees);
     }
 }
