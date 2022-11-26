@@ -41,7 +41,6 @@ class _CartePageState extends State<CartePage> {
   @override
   void initState() {
     _data.getMapCoordonnee().then((value) {
-      print(value.length);
       setState(() {
         makerList = List.generate(
           value.length,

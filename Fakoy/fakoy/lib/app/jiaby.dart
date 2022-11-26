@@ -154,6 +154,26 @@ class DataController {
     return positionLists;
   }
 
+  Future<List<MapCoordonate>> getHistory() async {
+    final data = await getUserInfo();
+    String listeMap = "$baseUrl/fako/utilisateur/${data.id}";
+
+    final response = await http.get(
+      Uri.parse(listeMap),
+      headers: {HttpHeaders.authorizationHeader: 'Bearer ${data.accessToken}'},
+    );
+    if (response.statusCode == 401) {
+      deleteAllData();
+    }
+    final items = json.decode(response.body).cast<Map<String, dynamic>>();
+
+    List<MapCoordonate> positionLists = items.map<MapCoordonate>((json) {
+      return MapCoordonate.fromJson(json);
+    }).toList();
+
+    return positionLists;
+  }
+
   qualiteAir() async {
     var request = http.MultipartRequest(
       'GET',
