@@ -4,6 +4,7 @@ from ampalibe import simulate
 from ampalibe import translate
 from ampalibe.ui import QuickReply
 from ampalibe import Messenger, Model
+from .persistent_menu import persistentu_first
 
 query = Model()
 chat = Messenger()
@@ -20,4 +21,5 @@ def choix_lang(sender_id):
 
 def choix_success(sender_id, lang):
     chat.send_message(sender_id, translate("langue_mis_a_jour", lang) + " ✔")
+    chat.persistent_menu(sender_id, persistentu_first(lang))
     simulate(sender_id, "OK")
