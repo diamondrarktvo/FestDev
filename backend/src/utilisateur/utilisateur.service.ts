@@ -107,14 +107,22 @@ export class UtilisateurService {
         .getRawOne();
     }
 
-    async findArgents() {
-        return await this.utilisateurRepository
-        .createQueryBuilder('u')
-        .select([])
-        .innerJoin(Fako, 'f', 'f.')
-        .where(``)
-        .getRawOne();
-    }
+    // async findArgents(utilisateur_id: number) {
+    //     return await this.utilisateurRepository
+    //     .createQueryBuilder('u')
+    //     .select([
+    //         'u.id as id', 'u.username as username',
+    //         `(SELECT SUM(prix) FROM fako 
+    //         WHERE id_Utilisateur = f.id_Utilisateur) as somme_argents`
+    //     ])
+    //     .innerJoin(Fako, 'f', 'f.id_Utilisateur = u.id')
+    //     .where(`f.id_Utilisateur=:identifiant AND f.status=:status`, {
+    //         identifiant: utilisateur_id,
+    //         status: false
+    //     })
+    //     .groupBy('f.id_Utilisateur')
+    //     .getRawOne();
+    // }
 
     async update(donnees: UpdateUtilisateurDto, utilisateur_id: number): Promise<void> {
         await this.utilisateurRepository

@@ -14,7 +14,21 @@ export class FakoService {
         private fakoRepository: Repository<Fako>
     ) {}
 
+    private async decrypt(text: {iv: string, key: string, encryptedData: string}) {
+        const crypto = require('crypto');
+        const algorithm = 'aes-256-cbc';
+
+        let iv = Buffer.from(text.iv, 'hex');
+        let key = Buffer.from(text.key, 'hex');
+        let encryptedText = Buffer.from(text.encryptedData, 'hex');
+        let decipher = crypto.createDecipheriv(algorithm, Buffer.from(key), iv);
+        let decrypted = decipher.update(encryptedText);
+        decrypted = Buffer.concat([decrypted, decipher.final()]);
+        return decrypted.toString();
+   }
+
     async create(donnees: CreateFakoDto): Promise<void> {
+        const decryptUtilisateurId = await this.decrypt(JSON.parse(donnees.utilisateur_id));
         await this.fakoRepository
         .createQueryBuilder()
         .insert()
@@ -22,7 +36,7 @@ export class FakoService {
         .values({
             poids: donnees.poids,
             prix: +(donnees.poids) * 0.7,
-            idUtilisateur: donnees.utilisateur_id,
+            idUtilisateur: decryptUtilisateurId,
             idType: donnees.type_id,
             idPlace: donnees.place_id
         })
@@ -98,6 +112,19 @@ export class FakoService {
         .innerJoin(Place, 'p', 'f.id_Place = p.id')
         .where(`f.status=:identifiant`, {identifiant: donnees.type_id})
         .getRawMany();
+    }
+
+    async findArgents(utilisateur_id: number) {
+        return await this.fakoRepository
+        .createQueryBuilder('f')
+        .select([
+            'SUM(f.prix) as somme_argent'
+        ])
+        .where(`f.id_Utilisateur=:identifiant AND f.status=:status`, {
+            identifiant: utilisateur_id,
+            status: false
+        })
+        .getRawOne();
     }
 
     async updateStatus(donnees: UpdateFakoStatusDto): Promise<void> {

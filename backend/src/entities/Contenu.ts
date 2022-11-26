@@ -6,11 +6,11 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { TypeContenu } from "./TypeContenu";
 import { Admin } from "./Admin";
+import { TypeContenu } from "./TypeContenu";
 
-@Index("fk_type_id_contenu", ["typeId"], {})
 @Index("fk_admin_id_contenu", ["adminId"], {})
+@Index("fk_type_id_contenu", ["typeId"], {})
 @Entity("contenu", { schema: "FAKOY" })
 export class Contenu {
   @PrimaryGeneratedColumn({ type: "int", name: "id" })
@@ -41,17 +41,17 @@ export class Contenu {
   @Column("int", { name: "type_id" })
   typeId: number;
 
-  @ManyToOne(() => TypeContenu, (typeContenu) => typeContenu.contenus, {
-    onDelete: "RESTRICT",
-    onUpdate: "RESTRICT",
-  })
-  @JoinColumn([{ name: "type_id", referencedColumnName: "id" }])
-  type: TypeContenu;
-
   @ManyToOne(() => Admin, (admin) => admin.contenus, {
     onDelete: "RESTRICT",
     onUpdate: "RESTRICT",
   })
   @JoinColumn([{ name: "admin_id", referencedColumnName: "id" }])
   admin: Admin;
+
+  @ManyToOne(() => TypeContenu, (typeContenu) => typeContenu.contenus, {
+    onDelete: "RESTRICT",
+    onUpdate: "RESTRICT",
+  })
+  @JoinColumn([{ name: "type_id", referencedColumnName: "id" }])
+  type: TypeContenu;
 }

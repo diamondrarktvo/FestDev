@@ -70,7 +70,7 @@ DROP TABLE IF EXISTS `type`;
 CREATE TABLE IF NOT EXISTS `type` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `description` TEXT COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

@@ -5,7 +5,7 @@ export class CreateFakoDto {
     poids: number;
 
     @ApiProperty()
-    utilisateur_id: number;
+    utilisateur_id: string;
 
     @ApiProperty()
     type_id: number;
