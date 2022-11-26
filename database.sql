@@ -107,6 +107,26 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `path_photo` VARCHAR(255) NULL
 );
 
+CREATE TABLE IF NOT EXISTS type_contenu (
+  `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS `contenu` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `photo_1` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `photo_2` varchar(255) COLLATE utf8mb4_general_ci NULL,
+  `description` TEXT NOT NULL,
+  `created_at` DATETIME DEFAULT NOW(),
+  `updated_at` DATETIME DEFAULT NULL,
+  `admin_id` INT(11) NOT NULL,
+  `type_id` INT(11) NOT NULL,
+  CONSTRAINT fk_admin_id_contenu FOREIGN KEY(admin_id)
+    REFERENCES `admin`(id),
+  CONSTRAINT fk_type_id_contenu FOREIGN KEY(type_id)
+    REFERENCES type_contenu(id)
+);
+
 -- Les données exportées n'étaient pas sélectionnées.
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
