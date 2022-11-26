@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
+    <title>FAKOY | iTudiant | Devfest 2022</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,16 +17,31 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
-    <title>FAKOY | iTudiant | Devfest 2022</title>
+    <script>
+      document.documentElement.className = "js";
+      var supportsCssVars = function () {
+        var e,
+          t = document.createElement("style");
+        return (
+          (t.innerHTML = "root: { --tmp-var: bold; }"),
+          document.head.appendChild(t),
+          (e = !!(
+            window.CSS &&
+            window.CSS.supports &&
+            window.CSS.supports("font-weight", "var(--tmp-var)")
+          )),
+          t.parentNode.removeChild(t),
+          e
+        );
+      };
+      supportsCssVars() ||
+        alert(
+          "Consulter ce site sur une navigateur récent pour ne pas avoir des bugs ou erreur! Merci pour votre compréhension!"
+        );
+    </script>
   </head>
   <body class="demo-1">
     <svg class="hidden">
-      <symbol id="icon-arrow" viewBox="0 0 24 24">
-        <title>arrow</title>
-        <polygon
-          points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "
-        />
-      </symbol>
       <symbol id="icon-drop" viewBox="0 0 24 24">
         <title>drop</title>
         <path
@@ -48,6 +64,33 @@
         />
       </symbol>
     </svg>
+    <main>
+      <div class="content content--fixed">
+        <header class="itudiant-header">
+          <div class="itudiant-links">
+            <a
+              class="itudiant-icon itudiant-icon--drop"
+              href="index.html"
+              title="Back to the article"
+              ><svg class="icon icon--drop">
+                <use xlink:href="#icon-drop"></use></svg
+            ></a>
+          </div>
+          <h1 class="itudiant-header__title">FAKOY Website</h1>
+        </header>
+        <a
+          class="github"
+          href="https://github.com/diamondrarktvo/iTudiant"
+          title="Find this project on GitHub"
+          ><svg class="icon icon--github">
+            <use xlink:href="#icon-github"></use></svg
+        ></a>
+        <p class="info">
+          Made by
+          <a href="https://github.com/diamondrarktvo/iTudiant">iTudiant Team</a>
+        </p>
+      </div>
+    </main>
 
     <script src="assets/js/main.js"></script>
   </body>
