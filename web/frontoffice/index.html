@@ -95,8 +95,8 @@
         <nav class="menu">
           <a href="#" class="menu__item">Actualité</a>
           <a href="#" class="menu__item">Sensibilisation</a>
-          <a href="#" class="menu__item">Pollution</a>
           <a href="#" class="menu__item">Application</a>
+          <a href="#" class="menu__item">Pollution</a>
           <a href="#" class="menu__item">Statistique</a>
           <a href="#" class="menu__item">Historique</a>
         </nav>
@@ -118,12 +118,12 @@
               <stop offset="1" stop-color="#06668C" />
             </linearGradient>
             <linearGradient id="gradient-3" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop stop-color="#03C490" />
-              <stop offset="1" stop-color="#03C490" />
-            </linearGradient>
-            <linearGradient id="gradient-4" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop stop-color="#3A9C12" />
               <stop offset="1" stop-color="#3A9C12" />
+            </linearGradient>
+            <linearGradient id="gradient-4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop stop-color="#03C490" />
+              <stop offset="1" stop-color="#03C490" />
             </linearGradient>
             <linearGradient id="gradient-5" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop stop-color="#7AA95C" />
@@ -384,17 +384,6 @@
           </div>
         </div>
         <div class="content__inner">
-          <h2 class="content__title">Pollution</h2>
-          <div class="content__pollution">
-            <div class="content__card_pollution">
-              <h5 id="air_quality_button">Qualité de l'air autour de moi</h5>
-            </div>
-            <div class="div__map">
-              <img src="https://via.placeholder.com/350x340" alt="map" />
-            </div>
-          </div>
-        </div>
-        <div class="content__inner">
           <h2 class="content__title">Application</h2>
           <div class="content__application">
             <img
@@ -413,6 +402,23 @@
                 mollit magna duis.
               </h4>
               <button>Download App</button>
+            </div>
+          </div>
+        </div>
+        <div class="content__inner">
+          <h2 class="content__title">Pollution</h2>
+          <div class="content__pollution">
+            <div class="content__card_pollution" id="content__card_pollution">
+              <h5
+                id="air_quality_button"
+                onclick="getPollutionAroundMe();"
+                style="cursor: pointer"
+              >
+                Qualité de l'air autour de moi
+              </h5>
+            </div>
+            <div class="div__map">
+              <img src="https://via.placeholder.com/350x340" alt="map" />
             </div>
           </div>
         </div>
@@ -439,9 +445,11 @@
       </div>
     </main>
 
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
     <script src="assets/js/anime.min.js"></script>
     <script src="assets/js/charming.min.js"></script>
     <script src="assets/js/render.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animation.js"></script>
   </body>
 </html>
