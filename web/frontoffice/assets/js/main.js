@@ -87,6 +87,7 @@ function getPollutionAroundMe(data) {
       `);
 }
 
+/*pour reloader les données*/
 function reloadGetPollution() {
   $("#content__card_pollution").html(`
     <h5 id="air_quality_button" 
@@ -105,10 +106,11 @@ function getPollution() {
   }
 }
 
+/*fonction pour fetcher les données de pollution de l'air en ce moment à la position de l'user*/
 async function getPollutionAroundThisPosition(position) {
   let { latitude, longitude } = position.coords;
   $("#content__card_pollution").html(
-    "<p style='text-align:center;'>Loading ...</p>"
+    "<div class='loader' style='margin: auto;'></div>"
   );
   await fetch(
     `https://api.airvisual.com/v2/nearest_city?lat=${latitude}&lon=${longitude}&key=267af3ba-fc10-4cb6-a507-4f1b6e4dc982`,
