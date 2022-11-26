@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Contenu } from "./Contenu";
 
 @Entity("admin", { schema: "FAKOY" })
 export class Admin {
@@ -30,4 +31,7 @@ export class Admin {
 
   @Column("varchar", { name: "path_photo", nullable: true, length: 255 })
   pathPhoto: string | null;
+
+  @OneToMany(() => Contenu, (contenu) => contenu.admin)
+  contenus: Contenu[];
 }
