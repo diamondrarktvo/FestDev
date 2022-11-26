@@ -1,8 +1,11 @@
 import 'package:fakoy/constants/colors.dart';
+import 'package:fakoy/pages/compte.dart';
+import 'package:fakoy/pages/map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../app/jiaby.dart';
 import '../home.dart';
 
 class CustomDrawer extends StatefulWidget {
@@ -14,9 +17,12 @@ class CustomDrawer extends StatefulWidget {
 
 class CustomDrawerState extends State<CustomDrawer> {
   final _advancedDrawerController = AdvancedDrawerController();
+  final DataController _data = DataController();
   int selectedIndex = 0;
   final List screens = [
     const PageAcceuil(),
+    const MonComptePage(),
+    const CartePage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -75,7 +81,7 @@ class CustomDrawerState extends State<CustomDrawer> {
               ),
               const Divider(),
               ListTile(
-                onTap: () {},
+                onTap: () => _menuCtrl(index: 1),
                 leading: CircleAvatar(
                   radius: 20,
                   backgroundColor: greenDark.withOpacity(0.5),
@@ -95,7 +101,7 @@ class CustomDrawerState extends State<CustomDrawer> {
               ),
               const Divider(),
               ListTile(
-                onTap: () {},
+                onTap: () => _menuCtrl(index: 2),
                 leading: CircleAvatar(
                   radius: 20,
                   backgroundColor: greenDark.withOpacity(0.5),
@@ -155,7 +161,7 @@ class CustomDrawerState extends State<CustomDrawer> {
               ),
               const Divider(),
               ListTile(
-                onTap: () {},
+                onTap: () => _data.deleteAllData(),
                 leading: CircleAvatar(
                   radius: 20,
                   backgroundColor: greenDark.withOpacity(0.5),

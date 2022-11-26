@@ -44,7 +44,7 @@ class DataController {
     await preferences.setString('createdAt', createdAt);
     await preferences.setString('updatedAt', updatedAt);
     await preferences.setString('fonction', fonction);
-    await preferences.setString('fonction', phone);
+    await preferences.setString('phone', phone);
     await preferences.setString('accesToken', accesToken);
     await preferences.setInt('userId', userId);
   }
@@ -58,6 +58,8 @@ class DataController {
     final username = preferences.getString('accesToken') ?? "accesToken_vide";
     final qrCode = preferences.getString('qrCode') ?? "qrCode";
     final quartier = preferences.getString('quartier') ?? "quartier";
+    final phone = preferences.getString('phone') ?? "phone";
+    final cin = preferences.getString('cin') ?? "cin";
     return User(
       username: username,
       nom: firstName,
@@ -65,6 +67,8 @@ class DataController {
       fonction: fonction,
       qrCode: qrCode,
       quartier: quartier,
+      cin: cin,
+      phone: phone,
     );
   }
 

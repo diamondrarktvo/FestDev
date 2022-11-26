@@ -1,7 +1,6 @@
 import 'package:fakoy/constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -16,7 +15,12 @@ class MonComptePage extends StatefulWidget {
 
 class _MonComptePageState extends State<MonComptePage> {
   final DataController _data = DataController();
-  String username = "", quartier = "", qrCodeUrl = "", fonction = "";
+  String username = "",
+      quartier = "",
+      qrCodeUrl = "",
+      fonction = "",
+      phone = "",
+      cin = "";
   _alaikoDegany() async {
     final data = await _data.getUserInfo();
 
@@ -25,6 +29,8 @@ class _MonComptePageState extends State<MonComptePage> {
       qrCodeUrl = data.qrCode!;
       quartier = data.quartier!;
       fonction = data.fonction!;
+      cin = data.cin!;
+      phone = data.phone!;
     });
   }
 
@@ -41,15 +47,7 @@ class _MonComptePageState extends State<MonComptePage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: greenLight,
-        leading: IconButton(
-          onPressed: () {
-            _data.deleteAllData();
-          },
-          icon: Icon(
-            Iconsax.menu5,
-            color: greenDark,
-          ),
-        ),
+        leading: const SizedBox(),
       ),
       body: SizedBox(
         height: Get.height,
@@ -136,7 +134,9 @@ class _MonComptePageState extends State<MonComptePage> {
                           width: 380,
                           height: 330,
                           child: Image.network(
-                            '${_data.baseUrl}/$qrCodeUrl',
+                            qrCodeUrl.isEmpty
+                                ? 'http://faq-login-unico.servicos.gov.br/en/latest/_images/imagem_qrcode_exemplo.jpg'
+                                : '${_data.baseUrl}/$qrCodeUrl',
                             fit: BoxFit.fitHeight,
                           ),
                         ),
@@ -144,7 +144,65 @@ class _MonComptePageState extends State<MonComptePage> {
                     ),
                   ],
                 ),
-              )
+              ),
+              Container(
+                padding: const EdgeInsets.all(10),
+                color: Colors.transparent,
+                width: Get.width,
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Iconsax.card5,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 7,
+                      ),
+                      Text(
+                        cin,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Caviar',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(10),
+                color: Colors.transparent,
+                width: Get.width,
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Iconsax.call5,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 7,
+                      ),
+                      Text(
+                        phone,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Caviar',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

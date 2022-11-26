@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Caviar',
       ),
-      initialRoute: '/userProfile',
+      initialRoute: '/drawer',
       routes: {
         '/': (context) => const HomePage(),
         '/signUp': (context) => const SignUpPage(),
