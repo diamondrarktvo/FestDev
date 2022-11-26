@@ -7,6 +7,7 @@ import { UtilisateurService } from './utilisateur.service';
 import { diskStorage } from 'multer';
 import { Express } from 'express';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { Utilisateur } from 'src/entities/Utilisateur';
 
 @Controller('utilisateur')
 export class UtilisateurController {
@@ -75,6 +76,13 @@ export class UtilisateurController {
     }))
     async updatePhotoUtilisateur(@UploadedFile() file: Express.Multer.File, @Request() req: any) {
         if(req.user.fonction !== 'utilisateur') throw new ForbiddenException('Credentials incorrects !');
+        const lastPhoto: Utilisateur = await this.utilisateurService.verifyPhoto(+(req.user.id));
+        if(lastPhoto.pathPhoto) {
+            const fs = require('fs');
+            fs.unlink('./uploads'+lastPhoto.pathPhoto, (err: any, data: any) => {
+                if(err) throw new Error('Erreur de supression du fichier !');
+            });
+        }
         const pathfile: string = `/etudiants_profils/${ file.filename }`;
         return await this.utilisateurService.updatePathPhoto(pathfile, +(req.user.id))
     }
