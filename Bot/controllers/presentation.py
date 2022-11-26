@@ -11,7 +11,7 @@ model = PresentationModel(Configuration.API_URL)
 
 class PresentationController:
     def get_content(self, sender_id, t):
-        
+
         data = (
             model.get_content()["articles"][:10]
             if t == "sensibilisation"

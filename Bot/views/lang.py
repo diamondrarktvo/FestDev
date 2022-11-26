@@ -16,7 +16,9 @@ def choix_lang(sender_id):
         QuickReply(title="EN 🇬🇧", payload=Payload("/lang", new_lang="en")),
         QuickReply(title="MG 🇲🇬", payload=Payload("/lang", new_lang="mg")),
     ]
-    chat.send_quick_reply(sender_id, quick_rep, "Choisissez votre langue")
+    chat.send_quick_reply(
+        sender_id, quick_rep, "Avant de commencer alors choisissez votre langue"
+    )
 
 
 def choix_success(sender_id, lang):

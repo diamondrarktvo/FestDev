@@ -33,22 +33,18 @@ class MySpaceController:
         query.del_temp(sender_id, "username")
         if response["statusCode"] == 200:
             query.set_temp(sender_id, "token", response["access_token"])
+            query.set_temp(sender_id, "qr", response["path_qr_code"])
             return view.login_success(
                 sender_id,
                 response,
-                {
-                    QuickReply(
-                        title=translate("mon_qr", lang),
-                        image_url="http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSh-wrQu254qFaRcoYktJ5QmUhmuUedlbeMaQeaozAVD4lh4ICsGdBNubZ8UlMvWjKC",
-                        payload="/my_space/mo_qr",
-                    ),
-                    QuickReply(
-                        title=translate("mon_argent", lang),
-                        image_url="https://upload.wikimedia.org/wikipedia/commons/0/09/50_USD_Series_2004_Note_Front.jpg",
-                        payload="/my_space/my_argent",
-                    ),
-                },
                 lang,
             )
         else:
             return view.login_failed(sender_id, lang)
+
+    def already_connected(self, sender_id, lang):
+        return view.already_connected(sender_id, lang)
+
+    def my_money(self, sender_id, lang):
+        response = model.my_money(query.get_temp(sender_id, "token"))
+        return view.my_money(sender_id, response["somme_argent"], lang)

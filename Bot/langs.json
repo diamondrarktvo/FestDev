@@ -1,66 +1,91 @@
 {
-    "intro": {
-        "fr": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "mg": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "en": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    },
-    "quick_principal": {
-        "fr": "Qu'est-ce que vous allez voir maintentaentalors ?",
-        "mg": "Inona arany no andeha ataonao androany",
-        "en": "What are you going to see here ?",
-    },
-    "sensibilisation": {
-        "fr": "Sensibilisation",
-        "mg": "Fanentanana",
-        "en": "sensitization",
-    },
-    "actualite": {"fr": "Actualité", "mg": "Voaovao", "en": "News"},
-    "ramassage": {
-        "fr": "Point de ramassage",
-        "mg": "toeram-pandraofana",
-        "en": "Pick up point",
-    },
-    "apk": {
-        "fr": "Télécharger l'application",
-        "mg": "Hampiasa ny aplikasiôna",
-        "en": "Download the application",
-    },
-    "mon_espace": {"fr": "Mon espace", "mg": "Ny fampiharanao", "en": "My space"},
-    "start_my_space": {
-        "fr": "Pour benificier votre espace personnel, veuillez vous connecter ou vous inscrire tant que vous n'avez pas encore du compte",
-        "mg": "Raha mba hanampy ny fampiharanao, mba hanomboka na hanoratra ny fampiharanao",
-        "en": "To benificier your personal space, please log in or register as you do not yet have an account",
-    },
-    "request_login_username": {
-        "fr": "Afin de connecter alors, veuillez saisir votre nom d'utilisateur",
-        "mg": "Mba ahafahanao miditra arany dia soraty ary ny solonaranao",
-        "en": "In order to login then, please enter your username",
-    },
-    "request_login_password": {
-        "fr": "Veuillez saisir ensuite votre mot de passe",
-        "mg": "Soraty manaraka izao ary ny tenimiafinao",
-        "en": "Then please enter your password",
-    },
-    "bienvenu": {
-        "fr": "Bienvenu chez votre espace personnel",
-        "mg": "Tonga soa ato anao ny fampiharanao ianao",
-        "en": "Welcome to your personal space",
-    },
-    "tienne": {
-        "fr": "Qu'est-ce que vous allez voir maintentaent alors ?",
-        "mg": "Inona arany no andeha hojerenao androany",
-        "en": "What are you going to see here ?",
-    },
-    "langue_mis_a_jour": {
-        "fr": "Votre langue a été mise à jour",
-        "mg": "Voaova ny fiteninao",
-        "en": "The language has been updated",
-    },
-    "mon_qr": {"fr": "Mon identité", "mg": "Ny fafantaranahy", "en": "My identity"},
-    "mon_argent": {
-        "fr": "Mon argent actuel",
-        "mg": "Ny Volako izao",
-        "en": "My current money",
-    },
-    "deconnexion": {"fr": "Déconnexion", "mg": "Hanala", "en": "Logout"},
+  "intro": {
+    "fr": "Bonjour, Bienvenue chez FAKOY 🥰🥰🥰🥰🥰\n\nFAKOY c'est qoui?\nUne application qui vous permet de mieux apprecier votre environement.\n\nComment se déroule FAKOY?\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nGagner l'argent avec FAKOY?\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nVisitez aussi nous sur : fakoy.e-commerce-mg.com",
+    "mg": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "en": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  },
+  "quick_principal": {
+    "fr": "Qu'est-ce que vous allez voir maintentaentalors ?",
+    "mg": "Inona arany no andeha ataonao androany",
+    "en": "What are you going to see here ?"
+  },
+  "sensibilisation": {
+    "fr": "Sensibilisation",
+    "mg": "Fanentanana",
+    "en": "sensitization"
+  },
+  "actualite": { "fr": "Actualité", "mg": "Voaovao", "en": "News" },
+  "ramassage": {
+    "fr": "Point de ramassage",
+    "mg": "toeram-pandraofana",
+    "en": "Pick up point"
+  },
+  "apk": {
+    "fr": "Télécharger l'application",
+    "mg": "Hampiasa ny aplikasiôna",
+    "en": "Download the application"
+  },
+  "mon_espace": {
+    "fr": "Mon espace",
+    "mg": "Ny fampiharanao",
+    "en": "My space"
+  },
+  "start_my_space": {
+    "fr": "Pour benificier votre espace personnel, veuillez vous connecter ou vous inscrire tant que vous n'avez pas encore du compte",
+    "mg": "Raha mba hanampy ny fampiharanao, mba hanomboka na hanoratra ny fampiharanao",
+    "en": "To benificier your personal space, please log in or register as you do not yet have an account"
+  },
+  "request_login_username": {
+    "fr": "Afin de connecter alors, veuillez saisir votre nom d'utilisateur",
+    "mg": "Mba ahafahanao miditra arany dia soraty ary ny solonaranao",
+    "en": "In order to login then, please enter your username"
+  },
+  "request_login_password": {
+    "fr": "Veuillez saisir ensuite votre mot de passe",
+    "mg": "Soraty manaraka izao ary ny tenimiafinao",
+    "en": "Then please enter your password"
+  },
+  "bienvenu": {
+    "fr": "Bienvenu chez votre espace personnel",
+    "mg": "Tonga soa ato anao ny fampiharanao ianao",
+    "en": "Welcome to your personal space"
+  },
+  "tienne": {
+    "fr": "Qu'est-ce que vous allez voir maintentaent alors ?",
+    "mg": "Inona arany no andeha hojerenao androany",
+    "en": "What are you going to see here ?"
+  },
+  "langue_mis_a_jour": {
+    "fr": "Votre langue a été mise à jour",
+    "mg": "Voaova ny fiteninao",
+    "en": "The language has been updated"
+  },
+  "mon_qr": {
+    "fr": "Mon identité",
+    "mg": "Ny fafantaranahy",
+    "en": "My identity"
+  },
+  "mon_argent": {
+    "fr": "Mon argent actuel",
+    "mg": "Ny Volako izao",
+    "en": "My current money"
+  },
+  "deconnexion": { "fr": "Déconnexion", "mg": "Hanala", "en": "Logout" },
+  "connect": { "fr": "Connexion", "mg": "Hanomboka", "en": "Login" },
+  "register": { "fr": "Inscription", "mg": "Hanoratra", "en": "Register" },
+  "msg_qr": {
+    "fr": "Voici donc le QR code de votre identité",
+    "mg": "Ity ary ny QR code ny mombamombanao",
+    "en": "Here is the QR code of your identity"
+  },
+  "mon_argent_actuel": {
+    "fr": "Votre argent actuel est",
+    "mg": "Ny Volana izao dia",
+    "en": "Your current money is "
+  },
+  "deconnexion_f": {
+    "fr": "Vous êtes maintenant déconnecté",
+    "mg": "Tafiala ianao ankehitriny",
+    "en": "You are now logged out"
+  }
 }

@@ -14,3 +14,13 @@ class MySpaceModel:
             },
         )
         return response.json()
+
+    def my_money(self, token):
+        response = requests.get(
+            self.url + "/fako/somme-argent",
+            headers={
+                "Authorization": "Bearer " + token,
+            },
+        )
+
+        return response.json()
