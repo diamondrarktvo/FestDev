@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:fakoy/pages/compte.dart';
 import 'package:fakoy/pages/home.dart';
+import 'package:fakoy/pages/map.dart';
 import 'package:fakoy/pages/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +11,17 @@ import 'pages/intro.dart';
 import 'pages/sign_in.dart';
 import 'pages/widget/drawer.dart';
 
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
+}
+
 void main() {
+  HttpOverrides.global = MyHttpOverrides();
   runApp(const MyApp());
 }
 
@@ -24,13 +38,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Caviar',
       ),
-      initialRoute: '/home',
+      initialRoute: '/userProfile',
       routes: {
         '/': (context) => const HomePage(),
         '/signUp': (context) => const SignUpPage(),
         '/signIn': (context) => const SignInPage(),
         '/home': (context) => const PageAcceuil(),
         '/drawer': (context) => const CustomDrawer(),
+        '/map': (context) => const CartePage(),
+        '/userProfile': (context) => const MonComptePage(),
       },
     );
   }

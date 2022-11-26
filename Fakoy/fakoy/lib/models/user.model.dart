@@ -9,24 +9,27 @@ class User {
   String? username;
   String? phone;
   String? pathPhoto;
+  String? qrCode;
   String? createdAt;
   String? updatedAt;
   String? fonction;
 
-  User(
-      {this.statusCode,
-      this.accessToken,
-      this.id,
-      this.nom,
-      this.prenom,
-      this.quartier,
-      this.cin,
-      this.username,
-      this.phone,
-      this.pathPhoto,
-      this.createdAt,
-      this.updatedAt,
-      this.fonction});
+  User({
+    this.statusCode,
+    this.accessToken,
+    this.id,
+    this.nom,
+    this.prenom,
+    this.quartier,
+    this.cin,
+    this.username,
+    this.phone,
+    this.pathPhoto,
+    this.createdAt,
+    this.updatedAt,
+    this.fonction,
+    this.qrCode,
+  });
 
   User.fromJson(Map<String, dynamic> json) {
     statusCode = json['statusCode'];
@@ -38,9 +41,10 @@ class User {
     cin = json['cin'];
     username = json['username'];
     phone = json['phone'];
-    pathPhoto = json['path_photo'];
+    pathPhoto = json['path_photo'] ?? "";
+    qrCode = json['path_qr_code'];
     createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    updatedAt = json['updated_at'] ?? "";
     fonction = json['fonction'];
   }
 
@@ -56,6 +60,7 @@ class User {
     data['username'] = username;
     data['phone'] = phone;
     data['path_photo'] = pathPhoto;
+    data['path_qr_code'] = qrCode;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
     data['fonction'] = fonction;

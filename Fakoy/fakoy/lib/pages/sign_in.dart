@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:lottie/lottie.dart';
 
+import '../app/jiaby.dart';
 import '../constants/colors.dart';
 
 class SignInPage extends StatefulWidget {
@@ -17,6 +18,7 @@ class _SignInPageState extends State<SignInPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   String username = '', password = '';
+  final DataController _data = DataController();
   bool _isHide = true;
   @override
   Widget build(BuildContext context) {
@@ -116,7 +118,12 @@ class _SignInPageState extends State<SignInPage> {
                 height: 50,
                 width: 300,
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _data.login(
+                      mdp: _passwordController.text,
+                      pseudo: _usernameController.text,
+                    );
+                  },
                   color: greenLight,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadiusDirectional.circular(25),

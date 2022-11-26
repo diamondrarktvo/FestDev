@@ -29,8 +29,7 @@ class _PageAcceuilState extends State<PageAcceuil> {
         elevation: 0,
         leading: IconButton(
           onPressed: () {
-            _data.qualiteAir();
-            print("object");
+            _data.deleteAllData();
           },
           icon: Icon(
             Iconsax.menu5,
