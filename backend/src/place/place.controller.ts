@@ -1,5 +1,6 @@
-import { Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, NotAcceptableException, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { CreatePlaceDto } from './dto/place.dto';
 import { PlaceService } from './place.service';
 
 @Controller('place')
@@ -10,8 +11,9 @@ export class PlaceController {
 
     @UseGuards(AuthGuard('jwtFakoy'))
     @Post('create')
-    async createPlace() {
-        return await this.createPlace();
+    async createPlace(@Body() donnees: CreatePlaceDto) {
+        if(!donnees) throw new NotAcceptableException('Credentials incorrects !');
+        return await this.createPlace(donnees);
     }
 
     @Get('all')
