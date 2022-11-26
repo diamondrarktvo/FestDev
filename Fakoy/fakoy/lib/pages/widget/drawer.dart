@@ -15,7 +15,7 @@ class CustomDrawer extends StatefulWidget {
 class CustomDrawerState extends State<CustomDrawer> {
   final _advancedDrawerController = AdvancedDrawerController();
   int selectedIndex = 0;
-  final List<Widget> screens = <Widget>[
+  final List screens = [
     const PageAcceuil(),
   ];
   @override
@@ -29,8 +29,16 @@ class CustomDrawerState extends State<CustomDrawer> {
       rtlOpening: false,
       disabledGestures: false,
       childDecoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(16)),
-      ),
+          borderRadius: BorderRadius.all(
+            Radius.circular(25),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 15,
+              spreadRadius: 20,
+            ),
+          ]),
       drawer: SafeArea(
         child: ListTileTheme(
           textColor: Colors.white,
@@ -52,7 +60,7 @@ class CustomDrawerState extends State<CustomDrawer> {
                   radius: 20,
                   backgroundColor: greenDark.withOpacity(0.5),
                   child: const Icon(
-                    Iconsax.home5,
+                    Iconsax.home,
                     color: Colors.white,
                     size: 25,
                   ),
@@ -92,7 +100,7 @@ class CustomDrawerState extends State<CustomDrawer> {
                   radius: 20,
                   backgroundColor: greenDark.withOpacity(0.5),
                   child: const Icon(
-                    Iconsax.map5,
+                    Iconsax.map_1,
                     color: Colors.white,
                     size: 25,
                   ),
@@ -132,7 +140,7 @@ class CustomDrawerState extends State<CustomDrawer> {
                   radius: 20,
                   backgroundColor: greenDark.withOpacity(0.5),
                   child: const Icon(
-                    Iconsax.logout5,
+                    Iconsax.logout,
                     color: Colors.white,
                     size: 25,
                   ),
