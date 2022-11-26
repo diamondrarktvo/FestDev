@@ -60,7 +60,8 @@ export class UtilisateurService {
         .set({
             quartier: donnees.quartier,
             phone: donnees.phone,
-            username: donnees.username
+            username: donnees.username,
+            updateAt: () => "NOW()"
         })
         .where(`id=:identifiant`, {identifiant: utilisateur_id})
         .execute();
@@ -81,11 +82,22 @@ export class UtilisateurService {
         .createQueryBuilder()
         .update(Utilisateur)
         .set({
-            mdp: () => "SHA2('"+donnees.newPassword+"', 256)"
+            mdp: () => "SHA2('"+donnees.newPassword+"', 256)",
+            updateAt: () => "NOW()"
+        })
+        .where(`id=:identifiant`, {identifiant: utilisateur_id})
+        .execute();
+    }
+
+    async updatePathPhoto(path_photo: string, utilisateur_id: number): Promise<void> {
+        await this.utilisateurRepository
+        .createQueryBuilder()
+        .update(Utilisateur)
+        .set({
+            pathPhoto: path_photo,
+            updateAt: () => "NOW()"
         })
         .where(`id=:identifiant`, {identifiant: utilisateur_id})
         .execute();
     }
 }
-
-

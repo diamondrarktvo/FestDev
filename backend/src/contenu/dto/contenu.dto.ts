@@ -2,10 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateContenuDto {
     @ApiProperty()
-    photo_1: string;
-
-    @ApiProperty()
-    photo_2: string;
+    photo_1?: string;
 
     @ApiProperty()
     description: string;

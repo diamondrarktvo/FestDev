@@ -7,6 +7,9 @@ import { PlaceModule } from './place/place.module';
 import { TypeModule } from './type/type.module';
 import { UtilisateurModule } from './utilisateur/utilisateur.module';
 import { AuthModule } from './auth/auth.module';
+import { ContenuModule } from './contenu/contenu.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -29,7 +32,11 @@ import { AuthModule } from './auth/auth.module';
     PlaceModule,
     TypeModule,
     UtilisateurModule,
-    AuthModule
+    AuthModule,
+    ContenuModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads')
+    }),
   ]
 })
 export class AppModule {}
