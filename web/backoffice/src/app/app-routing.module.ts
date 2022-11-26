@@ -8,8 +8,8 @@ const routes: Routes = [
     loadChildren: () => import('./dashbord/dashbord.module').then(m => m.DashbordModule)
   },
   { path: '', redirectTo: 'dashbord', pathMatch: 'full' },
-  { path: '**', redirectTo: '/dashbord', pathMatch: 'full' },
-
+  { path: '**', redirectTo: '/dashbord', pathMatch: 'full' }
+  // { path: '', component: LoginComponent }
 ];
 
 @NgModule({

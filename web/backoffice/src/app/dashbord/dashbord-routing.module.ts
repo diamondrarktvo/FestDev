@@ -12,8 +12,8 @@ import { TachesComponent } from './components/taches/taches.component';
 import { UtilisateursComponent } from './components/utilisateurs/utilisateurs.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     component: BodyComponent,
     children: [
       {path: 'accueil', component: AccueilComponent},
