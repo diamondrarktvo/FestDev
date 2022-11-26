@@ -1,4 +1,6 @@
-import { Body, Controller, ForbiddenException, Get, NotAcceptableException, Param, Post, Request, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, ForbiddenException, Get, 
+    NotAcceptableException, Param, Post, Request, 
+    UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ContenuService } from './contenu.service';
@@ -33,7 +35,7 @@ export class ContenuController {
         }
     }))
     async createContenu(@UploadedFile() file: Express.Multer.File, @Body() donnees: CreateContenuDto, @Request() req: any) {
-        if(req.user.fonction === 'admin') throw new ForbiddenException('Credentials incorrects !');
+        if(req.user.fonction !== 'admin') throw new ForbiddenException('Credentials incorrects !');
         if(!donnees) throw new NotAcceptableException('Credentials incorrects');
         const data = {
             photo_1: `/photo_contenu/${ file.filename }`,
