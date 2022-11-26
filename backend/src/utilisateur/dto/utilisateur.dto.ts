@@ -27,3 +27,14 @@ export class ParamUtilisateurDto {
     @ApiProperty()
     utilisateur_id: number
 }
+
+export class UpdateUtilisateurDto {
+    @ApiProperty()
+    quartier: string;
+
+    @ApiProperty()
+    phone: string;
+
+    @ApiProperty()
+    username: string;
+}
