@@ -1,9 +1,11 @@
+import 'package:fakoy/pages/home.dart';
 import 'package:fakoy/pages/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'pages/home.dart';
+import 'pages/intro.dart';
 import 'pages/sign_in.dart';
+import 'pages/widget/drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,11 +24,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Caviar',
       ),
-      initialRoute: '/',
+      initialRoute: '/drawer',
       routes: {
         '/': (context) => const HomePage(),
         '/signUp': (context) => const SignUpPage(),
         '/signIn': (context) => const SignInPage(),
+        '/home': (context) => const PageAcceuil(),
+        '/drawer': (context) => const CustomDrawer(),
       },
     );
   }
