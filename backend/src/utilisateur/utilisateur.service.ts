@@ -12,8 +12,13 @@ export class UtilisateurService {
         private utilisateurRepository: Repository<Utilisateur>
     ) {}
 
+    // private async generateQrCode(username: string, ) {
+    //     const qrcode = require('qrcode');
+    //     qrcode.
+    // }
+
     async create(donnees: CreateUtilisateurDto): Promise<void> {
-        await this.utilisateurRepository
+        const response = await this.utilisateurRepository
         .createQueryBuilder()
         .insert()
         .into(Utilisateur)
@@ -27,6 +32,9 @@ export class UtilisateurService {
             mdp: () => "SHA2('"+donnees.password+"', 256)"
         })
         .execute();
+
+        console.log(response['identifiers'][0].id)
+
     }
 
     async findall(): Promise<Utilisateur[]> {
