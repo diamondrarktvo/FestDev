@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Place } from 'src/entities/Place';
 import { Repository } from 'typeorm';
+import { CreatePlaceDto } from './dto/place.dto';
 
 @Injectable()
 export class PlaceService {
@@ -10,8 +11,18 @@ export class PlaceService {
         private placeRepository: Repository<Place>
     ) {}
 
-    async create():  Promise<void> {
-
+    async create(donnees: CreatePlaceDto):  Promise<void> {
+        await this.placeRepository
+        .createQueryBuilder()
+        .insert()
+        .into(Place)
+        .values({
+            nom: donnees.nom,
+            cordX: donnees.cord_x,
+            cordY: donnees.cord_y,
+            idFokotany: donnees.fokotany_id
+        })
+        .execute();
     }
 
     async findall(): Promise<Place[]> {
