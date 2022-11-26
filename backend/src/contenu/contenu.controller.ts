@@ -7,7 +7,9 @@ import { ContenuService } from './contenu.service';
 import { CreateContenuDto, ParamContenuIdDto } from './dto/contenu.dto';
 import { diskStorage } from 'multer';
 import { Express } from 'express';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @Controller('contenu')
 export class ContenuController {
     constructor(
