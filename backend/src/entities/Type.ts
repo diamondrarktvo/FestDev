@@ -9,8 +9,8 @@ export class Type {
   @Column("varchar", { name: "nom", length: 15 })
   nom: string;
 
-  @Column("varchar", { name: "description", length: 15 })
-  description: string;
+  @Column("text", { name: "description", nullable: true })
+  description: string | null;
 
   @OneToMany(() => Fako, (fako) => fako.idType2)
   fakos: Fako[];

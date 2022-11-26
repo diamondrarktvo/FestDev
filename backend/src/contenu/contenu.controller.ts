@@ -37,7 +37,7 @@ export class ContenuController {
     async createContenu(@UploadedFile() file: Express.Multer.File, @Body() donnees: CreateContenuDto, @Request() req: any) {
         if(req.user.fonction !== 'admin') throw new ForbiddenException('Credentials incorrects !');
         if(!donnees) throw new NotAcceptableException('Credentials incorrects');
-        const filename = `/photo_contenu/${ file.filename }`;
+        const filename = `photo_contenu/${ file.filename }`;
         return await this.contenuService.create(donnees, filename, +(req.user.id));
     }
 
