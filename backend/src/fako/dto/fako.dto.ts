@@ -13,3 +13,23 @@ export class CreateFakoDto {
     @ApiProperty()
     place_id: number;
 }
+
+export class ParamFakoUtilisateurIdDto {
+    @ApiProperty()
+    utilisateur_id: number;
+}
+
+export class ParamFakoStatusDto {
+    @ApiProperty()
+    status: boolean;
+}
+
+export class ParamFakoTypeId {
+    @ApiProperty()
+    type_id: number;
+}
+
+export class UpdateFakoStatusDto {
+    @ApiProperty()
+    fako_id: number;
+}
