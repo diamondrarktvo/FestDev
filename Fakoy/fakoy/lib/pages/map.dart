@@ -1,3 +1,4 @@
+import 'package:fakoy/app/jiaby.dart';
 import 'package:fakoy/constants/colors.dart';
 import 'package:iconsax/iconsax.dart';
 import "package:latlong2/latlong.dart";
@@ -15,6 +16,51 @@ class CartePage extends StatefulWidget {
 class _CartePageState extends State<CartePage> {
   final LatLng _center = LatLng(-18.88353410, 47.53613550);
   final MapController _mapController = MapController();
+  final DataController _data = DataController();
+  List<Marker> makerList = [
+    Marker(
+      width: 30.0,
+      height: 30.0,
+      point: LatLng(-18.88353410, 47.53613550),
+      builder: (ctx) => const Icon(
+        Iconsax.location5,
+        color: Colors.red,
+        size: 40,
+      ),
+    ),
+    Marker(
+        width: 30.0,
+        height: 30.0,
+        point: LatLng(-18.87607440, 47.54350240),
+        builder: (ctx) => const Icon(
+              Iconsax.location5,
+              color: Colors.red,
+              size: 40,
+            )),
+  ];
+  @override
+  void initState() {
+    _data.getMapCoordonnee().then((value) {
+      print(value.length);
+      setState(() {
+        makerList = List.generate(
+          value.length,
+          (index) => Marker(
+            width: 30.0,
+            height: 30.0,
+            point: LatLng(double.parse(value[index].cordX!),
+                double.parse(value[index].cordY!)),
+            builder: (ctx) => const Icon(
+              Iconsax.location5,
+              color: Colors.red,
+              size: 40,
+            ),
+          ),
+        );
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,26 +85,9 @@ class _CartePageState extends State<CartePage> {
         children: [
           TileLayer(
               urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'),
-          MarkerLayer(markers: [
-            Marker(
-                width: 30.0,
-                height: 30.0,
-                point: LatLng(-18.88353410, 47.53613550),
-                builder: (ctx) => const Icon(
-                      Iconsax.location5,
-                      color: Colors.red,
-                      size: 40,
-                    )),
-            Marker(
-                width: 30.0,
-                height: 30.0,
-                point: LatLng(-18.87607440, 47.54350240),
-                builder: (ctx) => const Icon(
-                      Iconsax.location5,
-                      color: Colors.red,
-                      size: 40,
-                    )),
-          ])
+          MarkerLayer(
+            markers: makerList,
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(

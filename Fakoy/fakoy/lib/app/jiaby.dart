@@ -1,7 +1,9 @@
 // ignore_for_file: unused_import
 
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:fakoy/models/map.model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -130,6 +132,26 @@ class DataController {
       return showMe(
           "ERREUR", "VERIFIER VOTRE CONNEXION INTERNET !", Colors.orangeAccent);
     }
+  }
+
+  Future<List<MapCoordonate>> getMapCoordonnee() async {
+    final data = await getUserInfo();
+    String listeMap = "$baseUrl/place/all";
+
+    final response = await http.get(
+      Uri.parse(listeMap),
+      headers: {HttpHeaders.authorizationHeader: 'Bearer ${data.accessToken}'},
+    );
+    if (response.statusCode == 401) {
+      deleteAllData();
+    }
+    final items = json.decode(response.body).cast<Map<String, dynamic>>();
+
+    List<MapCoordonate> positionLists = items.map<MapCoordonate>((json) {
+      return MapCoordonate.fromJson(json);
+    }).toList();
+
+    return positionLists;
   }
 
   qualiteAir() async {
