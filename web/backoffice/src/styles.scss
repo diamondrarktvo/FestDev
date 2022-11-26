@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Poppin';
+    src: url('assets/fonts/Poppins-Regular.ttf');
+}
+
+*, *::after, *::before {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppin', sans-serif;
+    font-size: .9rem;
+    transition: all .3s ease-in-out;
+}
+
+@keyframes animationOnInit {
+    from {
+        transform: rotateY(87deg) translateZ(37px);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }  
+}
+
+@keyframes animationOnDestroy {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(87deg) translateZ(37px);
+    }
+}
