@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Utilisateur } from 'src/entities/Utilisateur';
 import { Repository } from 'typeorm';
-import { CreateUtilisateurDto } from './dto/utilisateur.dto';
+import { CreateUtilisateurDto, ParamUtilisateurDto } from './dto/utilisateur.dto';
 
 @Injectable()
 export class UtilisateurService {
@@ -26,6 +26,31 @@ export class UtilisateurService {
             mdp: donnees.password
         })
         .execute();
+    }
+
+    async findall(): Promise<Utilisateur[]> {
+        return await this.utilisateurRepository
+        .createQueryBuilder('u')
+        .select([
+            'u.id as id', 'u.nom as nom', 'u.prenom as prenom',
+            'u.quartier as quartier', 'u.cin as cin', 'u.username as username',
+            'u.phone as phone', 'u.path_photo as path_photo', 
+            'u.created_at as created_at', 'u.updated_at as updated_at'
+        ])
+        .getRawMany()
+    }
+
+    async find(donnees: ParamUtilisateurDto): Promise<Utilisateur> {
+        return await this.utilisateurRepository
+        .createQueryBuilder('u')
+        .select([
+            'u.id as id', 'u.nom as nom', 'u.prenom as prenom',
+            'u.quartier as quartier', 'u.cin as cin', 'u.username as username',
+            'u.phone as phone', 'u.path_photo as path_photo', 
+            'u.created_at as created_at', 'u.updated_at as updated_at'
+        ])
+        .where(`u.id=:identifiant`, {identifiant: donnees.utilisateur_id})
+        .getRawOne();
     }
 }
 
