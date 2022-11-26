@@ -7,7 +7,7 @@ img {
   margin: auto;
 }
 input {
-  margin: 5px;
+  margin-bottom: 5px;
   padding: 5px;
   border-radius: 2px;
 }
@@ -21,4 +21,18 @@ input {
 textarea {
   border-radius: 5px;
   border-color: #6b956b;
+}
+form {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.thead-success {
+  background-color: #495c1a;
+  color: white;;
+}
+th, td {
+  color: white;
+}
+.other {
+  background-color: #6b956b;
 }
