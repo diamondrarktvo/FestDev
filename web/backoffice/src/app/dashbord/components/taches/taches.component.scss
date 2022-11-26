@@ -1,0 +1,24 @@
+#taches {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    animation: .7s linear animationOnInit;
+}
+img {
+  margin: auto;
+}
+input {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 2px;
+}
+.valider {
+  background-color: #495c1a;
+  color: white;
+  border-color: #6b956b;
+  padding-left: 51px;
+  padding-right: 50px;
+}
+textarea {
+  border-radius: 5px;
+  border-color: #6b956b;
+}
