@@ -640,6 +640,12 @@ main {
   flex-direction: column;
   justify-content: space-evenly;
 }
+
+.content__card_pollution h5 {
+  text-align: center;
+  text-decoration: underline;
+  color: #06668c;
+}
 .content__card_pollution .card__anaratanana {
   display: flex;
   flex-direction: column;
