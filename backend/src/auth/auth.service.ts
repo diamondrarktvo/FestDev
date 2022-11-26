@@ -45,6 +45,7 @@ export class AuthService {
         if(!response) throw new UnauthorizedException('Credentials incorrects !');
 
         return {
+            statusCode: 200,
             access_token: await this.signToken(response),
             ...response
         };
@@ -67,6 +68,7 @@ export class AuthService {
         if(!response) throw new UnauthorizedException('Credentials incorrects !');
 
         return {
+            statusCode: 200,
             access_token: await this.signToken(response),
             ...response
         };
