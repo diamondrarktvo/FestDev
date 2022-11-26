@@ -120,6 +120,26 @@ class CustomDrawerState extends State<CustomDrawer> {
                   radius: 20,
                   backgroundColor: greenDark.withOpacity(0.5),
                   child: const Icon(
+                    Iconsax.activity,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                ),
+                title: const Text(
+                  'PPM',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              const Divider(),
+              ListTile(
+                onTap: () {},
+                leading: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: greenDark.withOpacity(0.5),
+                  child: const Icon(
                     Iconsax.save_2,
                     color: Colors.white,
                     size: 25,
