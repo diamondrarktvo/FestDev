@@ -34,7 +34,7 @@ export class AuthService {
             'u.id as id', 'u.nom as nom', 'u.prenom as prenom',
             'u.quartier as quartier', 'u.cin as cin', 'u.username as username',
             'u.phone as phone', 'u.path_photo as path_photo', 
-            'u.created_at as created_at', 'u.updated_at as updated_at',
+            'u.created_at as created_at', 'u.update_at as updated_at',
             'u.fonction as fonction'
         ])
         .where(`u.username=:username AND u.mdp=SHA2(:password, 256)`, {
@@ -50,11 +50,13 @@ export class AuthService {
         };
     }
 
-    async signinAdmin(donnees: AuthDto): Promise<AuthResponseTokenDto> {
+    async signinAdmin(donnees: AuthDto) {
         const response: Admin = await this.adminRepository
         .createQueryBuilder('a')
         .select([
-            'a.id as id', 'a.username as username', 
+            'a.id as id', 'a.nom as nom', 'a.prenom as prenom', 
+            'a.username as username', 'a.phone as phone', 
+            'a.path_photo as path_photo', 
             'a.fonction as fonction'
         ])
         .where(`a.username=:username AND a.mdp=SHA2(:password, 256)`, {
@@ -65,7 +67,8 @@ export class AuthService {
         if(!response) throw new UnauthorizedException('Credentials incorrects !');
 
         return {
-            access_token: await this.signToken(response)
+            access_token: await this.signToken(response),
+            ...response
         };
     }
 }

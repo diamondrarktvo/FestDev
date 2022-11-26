@@ -21,8 +21,16 @@ export class Fako {
   @Column("double", { name: "poids", precision: 22 })
   poids: number;
 
-  @Column("tinyint", { name: "status", width: 1 })
-  status: boolean;
+  @Column("tinyint", {
+    name: "status",
+    nullable: true,
+    width: 1,
+    default: () => "'0'",
+  })
+  status: boolean | null;
+
+  @Column("double", { name: "prix", precision: 22 })
+  prix: number;
 
   @Column("datetime", {
     name: "date_create",
