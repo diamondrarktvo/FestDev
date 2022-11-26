@@ -22,6 +22,16 @@ class _CartePageState extends State<CartePage> {
       appBar: AppBar(
         backgroundColor: greenDark,
         elevation: 0,
+        centerTitle: true,
+        leading: const SizedBox(),
+        title: const Text(
+          'POINTS DE RECUPERATION',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: FlutterMap(
         options: MapOptions(center: _center, zoom: 13.0),
