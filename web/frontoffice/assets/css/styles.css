@@ -468,7 +468,6 @@ main {
 .menu__item {
   color: var(--color-menu);
   line-height: 1.25;
-  text-transform: lowercase;
   letter-spacing: -0.025em;
   text-indent: -0.025em;
   font-family: "Montserrat", sans-serif;
@@ -490,7 +489,7 @@ main {
   content: "";
   width: 70%;
   height: 25px;
-  background: linear-gradient(45deg, #f19872, #e86c9a);
+  background: linear-gradient(45deg, #226d68, #226d68);
   position: absolute;
   left: 0;
   bottom: 0;
@@ -499,23 +498,23 @@ main {
 }
 
 .menu__item:nth-child(2)::before {
-  background: linear-gradient(45deg, #0947db, #07d89d);
+  background: linear-gradient(45deg, #06668c, #06668c);
 }
 
 .menu__item:nth-child(3)::before {
-  background: linear-gradient(45deg, #ee2d29, #f8ae2c);
+  background: linear-gradient(45deg, #03c490, #03c490);
 }
 
 .menu__item:nth-child(4)::before {
-  background: linear-gradient(45deg, #3a3d98, #6f22b9);
+  background: linear-gradient(45deg, #42e202, #42e202);
 }
 
 .menu__item:nth-child(5)::before {
-  background: linear-gradient(45deg, #9d316e, #de2d3e);
+  background: linear-gradient(45deg, #7aa95c, #7aa95c);
 }
 
 .menu__item:nth-child(6)::before {
-  background: linear-gradient(45deg, #00ac53, #23c3e0);
+  background: linear-gradient(45deg, #00ac53, #00ac53);
 }
 
 .menu__item--showDeco::before {
