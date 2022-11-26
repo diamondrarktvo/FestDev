@@ -38,3 +38,11 @@ export class UpdateUtilisateurDto {
     @ApiProperty()
     username: string;
 }
+
+export class UpdateUtilisateurPasswordDto {
+    @ApiProperty()
+    lastPassword: string;
+
+    @ApiProperty()
+    newPassword: string;
+}

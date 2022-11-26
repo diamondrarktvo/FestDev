@@ -1,7 +1,7 @@
 import { Body, Controller, Get, NotAcceptableException, 
-    Param, Post, Put, Request, UseGuards } from '@nestjs/common';
+    Param, Patch, Post, Request, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { CreateUtilisateurDto, ParamUtilisateurDto, UpdateUtilisateurDto } from './dto/utilisateur.dto';
+import { CreateUtilisateurDto, ParamUtilisateurDto, UpdateUtilisateurDto, UpdateUtilisateurPasswordDto } from './dto/utilisateur.dto';
 import { UtilisateurService } from './utilisateur.service';
 
 @Controller('utilisateur')
@@ -35,9 +35,17 @@ export class UtilisateurController {
     }
 
     @UseGuards(AuthGuard('jwtFakoy'))
-    @Put('update')
+    @Patch('update')
     async updateUtilisateur(@Body() donnees: UpdateUtilisateurDto, @Request() req: any) {
         if(!donnees) throw new NotAcceptableException('Credentials incorrects !');
         return await this.utilisateurService.update(donnees, +(req.user.id));
     }
+
+    @UseGuards(AuthGuard('jwtFakoy'))
+    @Patch('update-password')
+    async updatePasswordUtilisateur(@Body() donnees: UpdateUtilisateurPasswordDto, @Request() req: any) {
+        if(!donnees) throw new NotAcceptableException('Credentials incorrects !');
+        return await this.utilisateurService.updatePassword(donnees, +(req.user.id));
+    }
+
 }
