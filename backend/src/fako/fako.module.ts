@@ -6,9 +6,10 @@ import { Fako } from 'src/entities/Fako';
 import { Type } from 'src/entities/Type';
 import { Utilisateur } from 'src/entities/Utilisateur';
 import { Place } from 'src/entities/Place';
+import { Fokotany } from 'src/entities/Fokotany';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Fako, Type, Utilisateur, Place])],
+  imports: [TypeOrmModule.forFeature([Fako, Type, Utilisateur, Place, Fokotany])],
   providers: [FakoService],
   controllers: [FakoController]
 })
