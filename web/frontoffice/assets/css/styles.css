@@ -724,6 +724,11 @@ main {
   box-shadow: 1px 1px 8px rgb(110, 108, 108);
 }
 
+.div__map {
+  width: 350px;
+  height: 100%;
+}
+
 @media screen and (max-width: 55em) {
   .message {
     display: block;

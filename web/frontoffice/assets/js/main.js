@@ -1,3 +1,7 @@
+$(document).ready(function () {
+  $("#map").attr("src", "https://www.iqair.com/air-quality-map");
+});
+
 /*options pour fetch*/
 var requestOptions = {
   method: "GET",

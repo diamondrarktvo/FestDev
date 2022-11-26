@@ -17,6 +17,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"
+      integrity="sha512-966ZSKtam55E0uceA4gwro/zq6/mLleWTL6SG5Y9AwNEuBoGHS3GVvP5hJHiZeR2mKAfRkL/gfbzOwficQ0lAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
       document.documentElement.className = "js";
       var supportsCssVars = function () {
@@ -417,8 +423,12 @@
                 Qualité de l'air autour de moi
               </h5>
             </div>
-            <div class="div__map">
-              <img src="https://via.placeholder.com/350x340" alt="map" />
+            <div class="div__map" id="div__map">
+              <img
+                id="map"
+                src="https://via.placeholder.com/350x340"
+                alt="map"
+              />
             </div>
           </div>
         </div>
