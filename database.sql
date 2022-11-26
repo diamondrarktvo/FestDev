@@ -81,16 +81,31 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `prenom` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `fonction` VARCHAR(255) DEFAULT 'utilisateur',
   `quartier` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `cin` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `mdp` text COLLATE utf8mb4_general_ci NOT NULL,
   `phone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mdp` text COLLATE utf8mb4_general_ci NOT NULL,
+  `path_photo` VARCHAR(255) NULL,
   `facial` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+DROP TABLE IF EXISTS `admin`;
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `nom` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `fonction` VARCHAR(255) DEFAULT 'admin',
+  `username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mdp` text COLLATE utf8mb4_general_ci NOT NULL,
+  `path_photo` VARCHAR(255) NULL
+);
 
 -- Les données exportées n'étaient pas sélectionnées.
 
