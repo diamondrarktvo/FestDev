@@ -23,7 +23,8 @@ DROP TABLE IF EXISTS `fako`;
 CREATE TABLE IF NOT EXISTS `fako` (
   `id` int NOT NULL AUTO_INCREMENT,
   `poids` double NOT NULL,
-  `status` tinyint(1) NOT NULL,
+  `status` tinyint(1) DEFAULT 0,
+  `prix` DOUBLE NOT NULL,
   `date_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_Utilisateur` int NOT NULL,
   `id_Type` int NOT NULL,
