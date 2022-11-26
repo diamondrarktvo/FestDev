@@ -8,8 +8,8 @@ import '../pages/widget/show_modal.dart';
 
 String baseUrl = "";
 
-/**class DataController {
-  login(pseudo, mdp) async {
+class DataController {
+  /*login(pseudo, mdp) async {
     String urlLogin = baseUrl + "/auth/login";
     Map data = {'email': pseudo, 'password': mdp};
 
@@ -36,6 +36,20 @@ String baseUrl = "";
       return showMe(
           "ERREUR", "VERIFIER VOTRE CONNEXION INTERNET !", Colors.orangeAccent);
     }
+  }*/
+
+  qualiteAir() async {
+    var request = http.MultipartRequest(
+        'GET',
+        Uri.parse(
+            'http://api.airvisual.com/v2/tananarive?key=6038d95e-f980-4c38-bb75-651cc0f4374c'),);
+
+    http.StreamedResponse response = await request.send();
+
+    if (response.statusCode == 200) {
+      print(await response.stream.bytesToString(),);
+    } else {
+      print(response.reasonPhrase);
+    }
   }
 }
-*/

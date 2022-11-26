@@ -48,7 +48,7 @@ class CustomDrawerState extends State<CustomDrawer> {
             children: [
               Container(
                 width: 128.0,
-                height: 50.0,
+                height: 40.0,
                 margin: const EdgeInsets.only(
                   top: 64.0,
                   bottom: 64.0,

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Caviar',
       ),
-      initialRoute: '/drawer',
+      initialRoute: '/home',
       routes: {
         '/': (context) => const HomePage(),
         '/signUp': (context) => const SignUpPage(),
