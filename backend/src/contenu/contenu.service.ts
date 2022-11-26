@@ -18,7 +18,6 @@ export class ContenuService {
         .insert()
         .into(Contenu)
         .values({
-            photo_1: donnees.photo_1,
             description: donnees.description,
             adminId: admin_id,
             typeId: donnees.type_id
