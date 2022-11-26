@@ -137,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                             });
                           },
                           onFinish: () async {
-                            await Get.offNamed('/signUp');
+                            await Get.offNamed('/signIn');
                             setState(() {
                               isFinished = false;
                             });

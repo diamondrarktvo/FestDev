@@ -11,10 +11,19 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  String pseudo = "", name = "", password = "", lastname = "";
+  String pseudo = "",
+      name = "",
+      lastname = "",
+      cin = "",
+      phone = "",
+      quartier = "",
+      password = "";
   final TextEditingController _pseudoController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _lastnameController = TextEditingController();
+  final TextEditingController _cinController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _quartierController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   @override
   void initState() {
@@ -43,7 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Form(
                 child: Container(
                   width: Get.width,
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   height: Get.height * .45,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -55,17 +64,17 @@ class _SignUpPageState extends State<SignUpPage> {
                           pseudo = val!;
                         },
                         decoration: InputDecoration(
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Iconsax.profile_circle5,
-                            color: greenDark,
+                            color: Colors.white,
                           ),
                           hintText: 'Pseudo',
-                          hintStyle: const TextStyle(color: Colors.black),
+                          hintStyle: const TextStyle(color: Colors.white),
                           filled: true,
-                          fillColor: const Color(0xFFE6E3E3),
+                          fillColor: greenLight,
                           border: OutlineInputBorder(
                               borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(50)),
+                              borderRadius: BorderRadius.circular(15)),
                         ),
                       ),
                       const SizedBox(
@@ -78,47 +87,47 @@ class _SignUpPageState extends State<SignUpPage> {
                           name = val!;
                         },
                         decoration: InputDecoration(
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Iconsax.profile_circle5,
-                            color: greenDark,
+                            color: Colors.white,
                           ),
                           hintText: 'Nom ',
-                          hintStyle: const TextStyle(color: Colors.black),
+                          hintStyle: const TextStyle(color: Colors.white),
                           filled: true,
-                          fillColor: const Color(0xFFE6E3E3),
+                          fillColor: greenLight,
                           border: OutlineInputBorder(
                               borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(50)),
+                              borderRadius: BorderRadius.circular(15)),
                         ),
                       ),
                       const SizedBox(
                         height: 15,
                       ),
                       TextFormField(
-                        style: const TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.white),
                         controller: _lastnameController,
                         onSaved: (val) {
                           lastname = val!;
                         },
                         decoration: InputDecoration(
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Iconsax.profile_circle5,
-                            color: greenDark,
+                            color: Colors.white,
                           ),
                           hintText: 'Prénom',
-                          hintStyle: const TextStyle(color: Colors.black),
+                          hintStyle: const TextStyle(color: Colors.white),
                           filled: true,
-                          fillColor: const Color(0xFFE6E3E3),
+                          fillColor: greenLight,
                           border: OutlineInputBorder(
                               borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(50)),
+                              borderRadius: BorderRadius.circular(15)),
                         ),
                       ),
                       const SizedBox(
                         height: 15,
                       ),
                       TextFormField(
-                        style: const TextStyle(color: Colors.black),
+                        style: TextStyle(color: greenDark),
                         onSaved: (val) {
                           password = val!;
                         },
@@ -140,12 +149,12 @@ class _SignUpPageState extends State<SignUpPage> {
                                 color: greenDark,
                               )),
                           hintText: 'Mot de passe',
-                          hintStyle: const TextStyle(color: Colors.black),
+                          hintStyle: TextStyle(color: greenDark),
                           filled: true,
-                          fillColor: const Color(0xFFE6E3E3),
+                          fillColor: greenLight.withOpacity(.3),
                           border: OutlineInputBorder(
                               borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(50)),
+                              borderRadius: BorderRadius.circular(15)),
                         ),
                       ),
                       const SizedBox(
