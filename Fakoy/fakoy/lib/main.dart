@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'FAKOY',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -21,3 +22,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+//MAY YOUR COFFEE KICK IN BEFORE REALITY DOES.
