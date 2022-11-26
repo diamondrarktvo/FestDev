@@ -4,6 +4,7 @@ import 'package:fakoy/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:swipeable_button_view/swipeable_button_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isFinished = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +26,6 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
                 height: 50,
@@ -103,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         margin: EdgeInsets.zero,
                         width: Get.width * .7,
-                        height: 55,
+                        height: 56,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -111,27 +112,36 @@ class _HomePageState extends State<HomePage> {
                             bottomRight: Radius.circular(30),
                           ),
                         ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Commencer",
-                              style: TextStyle(
-                                color: greenLight,
-                                fontSize: 23,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 15,
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 20,
-                              color: greenLight,
-                            )
-                          ],
+                        child: SwipeableButtonView(
+                          buttonText: 'Commencer',
+                          buttontextstyle: TextStyle(
+                            color: greenLight,
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          buttonColor: Colors.white,
+                          buttonWidget: Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            color: Colors.grey,
+                          ),
+                          activeColor: Colors.white,
+                          disableColor: greenLight,
+                          isFinished: isFinished,
+                          indicatorColor:
+                              AlwaysStoppedAnimation<Color>(greenLight),
+                          onWaitingProcess: () {
+                            Future.delayed(Duration(seconds: 2), () {
+                              setState(() {
+                                isFinished = true;
+                              });
+                            });
+                          },
+                          onFinish: () async {
+                            await Get.offNamed('/signUp');
+                            setState(() {
+                              isFinished = false;
+                            });
+                          },
                         ),
                       ),
                     ),
@@ -141,7 +151,6 @@ class _HomePageState extends State<HomePage> {
               Container(
                 width: Get.width * .65,
                 height: Get.height * .3,
-                margin: EdgeInsets.zero,
                 decoration: BoxDecoration(
                   color: greenLight,
                   borderRadius: BorderRadius.only(
