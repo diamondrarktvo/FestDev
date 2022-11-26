@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                               opacity: 0.5,
                               child: Image.asset(
                                 'assets/logo/logo.png',
-                                color: Colors.white,
+                                color: greenDark,
                               ),
                             ),
                             ClipRect(
@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 width: Get.width * .65,
-                height: Get.height * .2,
+                height: Get.height * .3,
                 margin: EdgeInsets.zero,
                 decoration: BoxDecoration(
                   color: greenLight,
