@@ -33,6 +33,13 @@ export class FakoController {
         return await this.fakoService.findByUtilisateurId(donnees);
     }
 
+    @UseGuards(AuthGuard('jwtFakoy'))
+    @Get('')
+    async findFakoByToken(@Request() req: any) {
+        const donnees = {utilisateur_id: +(req.user.id)}
+        return await this.fakoService.findByUtilisateurId(donnees);
+    } 
+
     @Get('status/:status')
     async findFakoByStatus(@Param() donnees: ParamFakoStatusDto) {
         if(!donnees) throw new NotAcceptableException('Credentials incorrects !');
