@@ -1,7 +1,10 @@
-import { Body, Controller, ForbiddenException, Get, NotAcceptableException, Param, Post, Request, UseGuards } from '@nestjs/common';
+import { Body, Controller, ForbiddenException, Get, NotAcceptableException, Param, Post, Request, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { ContenuService } from './contenu.service';
 import { CreateContenuDto, ParamContenuIdDto } from './dto/contenu.dto';
+import { diskStorage } from 'multer';
+import { Express } from 'express';
 
 @Controller('contenu')
 export class ContenuController {
@@ -11,10 +14,33 @@ export class ContenuController {
 
     @UseGuards(AuthGuard('jwtFakoy'))
     @Post('create')
-    async createContenu(@Body() donnees: CreateContenuDto, @Request() req: any) {
+    @UseInterceptors(FileInterceptor('file', {
+        storage: diskStorage({
+            destination: './uploads/photo_contenu/',
+            filename: (req, file, cb): void => {
+                const name: string = file.originalname.split('.')[0];
+                const tmp: Array<string> = file.originalname.split('.');
+                const fileExtension: string = tmp[tmp.length - 1];
+                const newFilename: string = name.split(' ').join('_') + '_' + Date.now() + '.' + fileExtension;
+                cb(null, newFilename);
+            }
+        }),
+        fileFilter: (req, file, cb) => {
+            if(file.size > 1000) return cb(null, false);
+            if(!file.originalname.match(/\.(png|jpg|jpeg|svg)$/)) 
+                return cb(null, false);
+            cb(null, true);
+        }
+    }))
+    async createContenu(@UploadedFile() file: Express.Multer.File, @Body() donnees: CreateContenuDto, @Request() req: any) {
         if(req.user.fonction === 'admin') throw new ForbiddenException('Credentials incorrects !');
         if(!donnees) throw new NotAcceptableException('Credentials incorrects');
-        return await this.contenuService.create(donnees, +(req.user.id));
+        const pathfile: string = `/photo_contenu/${ file.filename }`;
+        const data = {
+            photo_1: `/photo_contenu/${ file.filename }`,
+            ...donnees
+        };
+        return await this.contenuService.create(data, +(req.user.id));
     }
 
     @Get('all')

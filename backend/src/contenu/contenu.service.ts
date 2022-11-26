@@ -19,7 +19,6 @@ export class ContenuService {
         .into(Contenu)
         .values({
             photo_1: donnees.photo_1,
-            photo_2: donnees.photo_2,
             description: donnees.description,
             adminId: admin_id,
             typeId: donnees.type_id
