@@ -1,6 +1,5 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Fako } from 'src/entities/Fako';
 import { Utilisateur } from 'src/entities/Utilisateur';
 import { Repository } from 'typeorm';
 import { CreateUtilisateurDto, ParamUtilisateurDto, 
@@ -65,8 +64,6 @@ export class UtilisateurService {
         const filename = `qr_code/${Date.now()}.png`;
         await this.generateQrCode(`uploads/${filename}`, cryptData);
         await this.updatePathQrCode(filename, identifiers);
-        // const decryptData = await this.decrypt(JSON.parse(cryptData));
-        // console.log(decryptData);
     }
 
     async findall(): Promise<Utilisateur[]> {
@@ -76,6 +73,7 @@ export class UtilisateurService {
             'u.id as id', 'u.nom as nom', 'u.prenom as prenom',
             'u.quartier as quartier', 'u.cin as cin', 'u.username as username',
             'u.phone as phone', 'u.path_photo as path_photo', 
+            'u.path_qr_code as path_qr_code',
             'u.created_at as created_at', 'u.update_at as updated_at'
         ])
         .getRawMany()
@@ -87,29 +85,13 @@ export class UtilisateurService {
         .select([
             'u.id as id', 'u.nom as nom', 'u.prenom as prenom',
             'u.quartier as quartier', 'u.cin as cin', 'u.username as username',
-            'u.phone as phone', 'u.path_photo as path_photo', 
+            'u.phone as phone', 'u.path_photo as path_photo',
+            'u.path_qr_code as path_qr_code',
             'u.created_at as created_at', 'u.update_at as updated_at'
         ])
         .where(`u.id=:identifiant`, {identifiant: donnees.utilisateur_id})
         .getRawOne();
     }
-
-    // async findArgents(utilisateur_id: number) {
-    //     return await this.utilisateurRepository
-    //     .createQueryBuilder('u')
-    //     .select([
-    //         'u.id as id', 'u.username as username',
-    //         `(SELECT SUM(prix) FROM fako 
-    //         WHERE id_Utilisateur = f.id_Utilisateur) as somme_argents`
-    //     ])
-    //     .innerJoin(Fako, 'f', 'f.id_Utilisateur = u.id')
-    //     .where(`f.id_Utilisateur=:identifiant AND f.status=:status`, {
-    //         identifiant: utilisateur_id,
-    //         status: false
-    //     })
-    //     .groupBy('f.id_Utilisateur')
-    //     .getRawOne();
-    // }
 
     async update(donnees: UpdateUtilisateurDto, utilisateur_id: number): Promise<void> {
         await this.utilisateurRepository

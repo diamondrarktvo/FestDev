@@ -40,12 +40,6 @@ export class UtilisateurController {
         return await this.utilisateurService.find(donnees);
     }
 
-    // @UseGuards(AuthGuard('jwtFakoy'))
-    // @Get('somme-argent')
-    // async findUtilisateurSommeArgents(@Request() req: any) {
-    //     return await this.utilisateurService.findArgents(+(req.user.id));
-    // }
-
     @UseGuards(AuthGuard('jwtFakoy'))
     @Patch('update')
     async updateUtilisateur(@Body() donnees: UpdateUtilisateurDto, @Request() req: any) {
@@ -56,6 +50,7 @@ export class UtilisateurController {
     @UseGuards(AuthGuard('jwtFakoy'))
     @Patch('update-password')
     async updatePasswordUtilisateur(@Body() donnees: UpdateUtilisateurPasswordDto, @Request() req: any) {
+        if(req.user.fonction !== 'utilisateur') throw new ForbiddenException('Credentials incorrects !');
         if(!donnees) throw new NotAcceptableException('Credentials incorrects !');
         return await this.utilisateurService.updatePassword(donnees, +(req.user.id));
     }
@@ -89,7 +84,7 @@ export class UtilisateurController {
                 if(err) throw new Error('Erreur de supression du fichier !');
             });
         }
-        const pathfile: string = `etudiants_profils/${ file.filename }`;
+        const pathfile: string = `photo_utilisateur/${ file.filename }`;
         return await this.utilisateurService.updatePathPhoto(pathfile, +(req.user.id))
     }
 }
