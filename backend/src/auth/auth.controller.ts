@@ -13,4 +13,10 @@ export class AuthController {
         if(!donnees) throw new NotAcceptableException('Credentials incorrects !');
         return await this.authService.signinUtilisateur(donnees);
     }
+
+    @Post('auth-admin')
+    async authAdmin(@Body() donnees: AuthDto) {
+        if(!donnees) throw new NotAcceptableException('Credentials incorrects !');
+        return await this.authService.signinAdmin(donnees);
+    }
 }
