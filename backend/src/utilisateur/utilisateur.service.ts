@@ -90,6 +90,14 @@ export class UtilisateurService {
         .execute();
     }
 
+    async verifyPhoto(utilisateur_id: number): Promise<Utilisateur> {
+        return await this.utilisateurRepository
+        .createQueryBuilder('u')
+        .select(['u.path_photo as pathPhoto'])
+        .where(`u.id=:identifiant`, {identifiant: utilisateur_id})
+        .getRawOne();
+    }
+
     async updatePathPhoto(path_photo: string, utilisateur_id: number): Promise<void> {
         await this.utilisateurRepository
         .createQueryBuilder()

@@ -38,6 +38,9 @@ export class Utilisateur {
   @Column("varchar", { name: "path_photo", nullable: true, length: 255 })
   pathPhoto: string | null;
 
+  @Column("varchar", { name: "path_qr_code", nullable: true, length: 255 })
+  pathQrCode: string | null;
+
   @Column("varchar", { name: "facial", nullable: true, length: 15 })
   facial: string | null;
 

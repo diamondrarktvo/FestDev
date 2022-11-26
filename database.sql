@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `phone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `mdp` text COLLATE utf8mb4_general_ci NOT NULL,
   `path_photo` VARCHAR(255) NULL,
+  `path_qr_code` VARCHAR(255),
   `facial` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` datetime DEFAULT NULL,
