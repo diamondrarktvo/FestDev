@@ -1,5 +1,6 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Fako } from 'src/entities/Fako';
 import { Utilisateur } from 'src/entities/Utilisateur';
 import { Repository } from 'typeorm';
 import { CreateUtilisateurDto, ParamUtilisateurDto, 
@@ -74,8 +75,8 @@ export class UtilisateurService {
         .execute();
         const identifiers = await response['identifiers'][0].id;
         const cryptData = await this.encrypt(identifiers.toString());
-        const filename = `uploads/qr_code/${Date.now()}.png`;
-        await this.generateQrCode(filename, cryptData);
+        const filename = `qr_code/${Date.now()}.png`;
+        await this.generateQrCode(`uploads/${filename}`, cryptData);
         await this.updatePathQrCode(filename, identifiers);
         // const decryptData = await this.decrypt(JSON.parse(cryptData));
         // console.log(decryptData);
@@ -103,6 +104,15 @@ export class UtilisateurService {
             'u.created_at as created_at', 'u.update_at as updated_at'
         ])
         .where(`u.id=:identifiant`, {identifiant: donnees.utilisateur_id})
+        .getRawOne();
+    }
+
+    async findArgents() {
+        return await this.utilisateurRepository
+        .createQueryBuilder('u')
+        .select([])
+        .innerJoin(Fako, 'f', 'f.')
+        .where(``)
         .getRawOne();
     }
 
