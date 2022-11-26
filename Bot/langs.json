@@ -1,13 +1,37 @@
 {
-    "hello_world": {
-        "en": "Hello World",
-        "fr": "Bonjour le monde"
-    },
-
-    "ampalibe": {
-        "en": "Jackfruit", 
-        "fr": "Jacquier",
-        "mg": "Ampalibe"
-    }
+  "intro": {
+    "fr": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "mg": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    "en": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  },
+  "quick_principal": {
+    "fr": "Qu'est-ce que vous allez voir maintentaentalors ?",
+    "mg": "Inona arany no andeha ataonao androany",
+    "en": "What are you going to see here ?"
+  },
+  "sensibilisation": {
+    "fr": "Sensibilisation",
+    "mg": "Fanentanana",
+    "en": "sensitization"
+  },
+  "actualite": {
+    "fr": "Actualité",
+    "mg": "Voaovao",
+    "en": "News"
+  },
+  "ramassage": {
+    "fr": "Point de ramassage",
+    "mg": "toeram-pandraofana",
+    "en": "Pick up point"
+  },
+  "apk": {
+    "fr": "Télécharger l'application",
+    "mg": "Hampiasa ny aplikasiôna",
+    "en": "Download the application"
+  },
+  "mon_espace": {
+    "fr": "Mon espace",
+    "mg": "Ny fampiharanao",
+    "en": "My space"
+  }
 }
-
