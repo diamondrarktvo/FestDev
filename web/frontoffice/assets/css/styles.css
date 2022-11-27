@@ -221,7 +221,7 @@ a:focus {
 
 body {
   font-family: "Montserrat", sans-serif;
-  min-height: 100vmax;
+  min-height: 100vh;
   color: #ededed;
   color: var(--color-text);
   background-color: #fff;
