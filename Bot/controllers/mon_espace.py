@@ -32,16 +32,13 @@ class MySpaceController:
         return view.my_space(sender_id, quick, lang)
 
     def login(self, sender_id, password, lang):
-        # key = str(time.time())
-        # download_file(password, f"assets/public/__{sender_id}_{key}.mp4")
-        # os.system(
-        #     f"ffmpeg -i assets/public/__{sender_id}_{key}.mp4 assets/public/__{sender_id}_{key}.wav -y"
-        # )
-        # mdp_text = speech2text(f"assets/public/__{sender_id}_{key}.wav")
-        # print(mdp_text)
-        
-        # return True
-
+        key = str(time.time())
+        download_file(password, f"assets/public/__{sender_id}_{key}.mp4")
+        os.system(
+            f"ffmpeg -i assets/public/__{sender_id}_{key}.mp4 assets/public/__{sender_id}_{key}.wav -y"
+        )
+        password = speech2text(f"assets/public/__{sender_id}_{key}.wav")
+        print(password)
         response = model.login(query.get_temp(sender_id, "username"), password)
         query.set_action(sender_id, None)
         query.del_temp(sender_id, "username")
