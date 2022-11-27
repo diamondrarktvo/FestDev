@@ -38,3 +38,9 @@ class PresentationView:
 
     def sensibilisation(self, sender_id, data):
         chat.send_template(sender_id, data)
+
+    def pick_up_point(self, sender_id, data):
+        chat.send_message(
+            sender_id,
+            translate("pick_up_point", "fr") + "\n\n" + "✅\n".join(data) + "✅",
+        )

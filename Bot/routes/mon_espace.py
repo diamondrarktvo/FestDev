@@ -39,8 +39,7 @@ def pending_login_username(sender_id, cmd, **ext):
 def pending_login_password(sender_id, cmd, **ext):
     chat.send_action(sender_id, Action.mark_seen)
     controller.login(sender_id, cmd, ext["lang"])
-
-
+    
 @ampalibe.command("/my_space/mon_qr")
 def mon_espace_mo_qr(sender_id, **ext):
     chat.send_action(sender_id, Action.mark_seen)

@@ -1,8 +1,9 @@
-from conf import Configuration
-from ampalibe.ui import Element, Button, Type
-from models import PresentationModel
 from ampalibe import Payload
+from ampalibe import translate
+from conf import Configuration
 from views import PresentationView
+from models import PresentationModel
+from ampalibe.ui import Element, Button, Type
 
 
 view = PresentationView()
@@ -10,7 +11,7 @@ model = PresentationModel(Configuration.API_URL)
 
 
 class PresentationController:
-    def get_content(self, sender_id, t):
+    def get_content(self, sender_id, t, lang):
 
         data = (
             model.get_content()["articles"][:10]
@@ -28,7 +29,7 @@ class PresentationController:
                     buttons=[
                         Button(
                             type=Type.postback,
-                            title="Voir les contenus",
+                            title=translate("voir_contenu", lang),
                             payload=Payload("/voir", data=content["content"]),
                         )
                     ],
@@ -40,4 +41,6 @@ class PresentationController:
         print("APK")
 
     def pick_up_point(self, sender_id):
-        print("Point de ramassage")
+        return view.pick_up_point(
+            sender_id, [data["nom"] for data in model.get_place()]
+        )
