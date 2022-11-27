@@ -17,12 +17,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"
-      integrity="sha512-966ZSKtam55E0uceA4gwro/zq6/mLleWTL6SG5Y9AwNEuBoGHS3GVvP5hJHiZeR2mKAfRkL/gfbzOwficQ0lAg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
     <script>
       document.documentElement.className = "js";
       var supportsCssVars = function () {
@@ -102,9 +96,9 @@
           <a href="#" class="menu__item">Actualité</a>
           <a href="#" class="menu__item">Sensibilisation</a>
           <a href="#" class="menu__item">Application</a>
-          <a href="#" class="menu__item">Pollution</a>
-          <a href="#" class="menu__item">Statistique</a>
           <a href="#" class="menu__item">Map</a>
+          <a href="#" class="menu__item">Statistique</a>
+          <a href="#" class="menu__item">Pollution</a>
         </nav>
         <svg
           class="scene"
@@ -128,16 +122,16 @@
               <stop offset="1" stop-color="#3A9C12" />
             </linearGradient>
             <linearGradient id="gradient-4" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop stop-color="#03C490" />
-              <stop offset="1" stop-color="#03C490" />
+              <stop stop-color="#00ac53" />
+              <stop offset="1" stop-color="#00ac53" />
             </linearGradient>
             <linearGradient id="gradient-5" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop stop-color="#7AA95C" />
               <stop offset="1" stop-color="#7AA95C" />
             </linearGradient>
             <linearGradient id="gradient-6" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop stop-color="#00ac53" />
-              <stop offset="1" stop-color="#00ac53" />
+              <stop stop-color="#03C490" />
+              <stop offset="1" stop-color="#03C490" />
             </linearGradient>
           </defs>
           <g class="blob-1">
@@ -412,6 +406,19 @@
           </div>
         </div>
         <div class="content__inner">
+          <h2 class="content__title">Map</h2>
+          <h6 class="content__subtitle">
+            Vous trouvez ici nos points de ramassages!!
+          </h6>
+          <div id="div__map"></div>
+        </div>
+        <div class="content__inner">
+          <h2 class="content__title">Statistique</h2>
+          <h3 class="content__subtitle">
+            The gabby priority handles into the deadly dot.
+          </h3>
+        </div>
+        <div class="content__inner">
           <h2 class="content__title">Pollution</h2>
           <div class="content__pollution">
             <div class="content__card_pollution" id="content__card_pollution">
@@ -423,23 +430,10 @@
                 Qualité de l'air autour de moi
               </h5>
             </div>
-            <div class="div__image_pollution">
+            <div class="div__illustration_pollution">
               <img src="https://via.placeholder.com/350x340" alt="map" />
             </div>
           </div>
-        </div>
-        <div class="content__inner">
-          <h2 class="content__title">Statistique</h2>
-          <h3 class="content__subtitle">
-            The gabby priority handles into the deadly dot.
-          </h3>
-        </div>
-        <div class="content__inner">
-          <h2 class="content__title">Map</h2>
-          <h5 class="content__subtitle">
-            Retrouver ici tous les points de rammasse de déchets.
-          </h5>
-          <div id="div__map"></div>
         </div>
         <button class="content__close">
           <svg class="icon icon--arrowback">
@@ -452,12 +446,12 @@
       </div>
     </main>
 
+    Dominick
     <script
       async
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYsKnr7KjV2OvyyQsYy4mShI5EDNH-vb0&callback=initMap"
     ></script>
-
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/anime.min.js"></script>
