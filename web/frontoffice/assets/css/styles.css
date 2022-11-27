@@ -641,10 +641,6 @@ main {
   width: 100%;
   align-items: center;
 }
-.content__pollution .div__map img {
-  border-radius: 15px;
-  margin-left: 15px;
-}
 .content__card_pollution {
   background-color: white;
   padding: 12px;
@@ -736,6 +732,7 @@ main {
 
 #div__map {
   width: 650px;
+  z-index: 2000;
   color: black;
   margin-left: 12px;
   height: 320px;

@@ -126,10 +126,10 @@ async function getPollutionAroundThisPosition(position) {
 //267af3ba-fc10-4cb6-a507-4f1b6e4dc982
 
 let locations = [
-  ["-18.8547072", "47.4873845"],
-  ["-18.8547092", "47.4873896"],
-  ["-18.8547887", "46.4873856"],
-  ["-18.854769", "47.4873856"],
+  ["-18.929485851354126", "47.51947183691344", "Tsimbazaza"],
+  ["-18.897145710348955", "47.570543880638006", "Ambatomaro"],
+  ["-18.849553089010545", "47.478361724939326", "Andranomena"],
+  ["-18.86839683469433", "47.54290639808143", "Ambohijatovo"],
 ];
 
 function initMap() {
@@ -160,7 +160,7 @@ function initMap() {
       "click",
       (function (marker, count) {
         return function () {
-          infowindow.setContent(locations[count][0]);
+          infowindow.setContent(locations[count][2]);
           infowindow.open(map, marker);
         };
       })(marker, count)

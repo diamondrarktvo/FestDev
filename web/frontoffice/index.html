@@ -366,8 +366,10 @@
           <h2 class="content__title">Sensibilisation</h2>
           <div class="content__sensibilisation">
             <img
-              src="https://via.placeholder.com/300x200"
+              src="assets/images/109397-news-error.gif"
               alt="actualité img"
+              width="300"
+              height="200"
             />
             <h4 class="description__sensibilisation">
               Fugiat in ut proident amet qui ea enim incididunt sunt tempor.
@@ -390,8 +392,10 @@
               exercitation est culpa.
             </h4>
             <img
-              src="https://via.placeholder.com/300x200"
+              src="assets/images/353-newspaper-spinner.gif"
               alt="actualité img"
+              width="300"
+              height="200"
             />
           </div>
         </div>
@@ -413,7 +417,12 @@
                 occaecat quis sit officia aliquip qui. Esse consequat laborum
                 mollit magna duis.
               </h4>
-              <button>Download App</button>
+              <button
+                style="z-index: 1400"
+                onclick="alert(`l'application a été télecharger`);"
+              >
+                Download App
+              </button>
             </div>
           </div>
         </div>
@@ -426,7 +435,7 @@
           <h2 class="content__title">Statistique</h2>
           <div
             id="myChart"
-            style="width: 100%; max-width: 600px; height: 320px"
+            style="width: 100%; max-width: 600px; height: 320px; z-index: 1600"
           ></div>
         </div>
         <div class="content__inner">
@@ -442,7 +451,11 @@
               </h5>
             </div>
             <div class="div__illustration_pollution">
-              <img src="https://via.placeholder.com/350x340" alt="map" />
+              <img
+                src="assets/images/bee-lounging.gif"
+                width="350"
+                height="340"
+              />
             </div>
           </div>
         </div>
@@ -462,6 +475,7 @@
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYsKnr7KjV2OvyyQsYy4mShI5EDNH-vb0&callback=initMap"
     ></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/anime.min.js"></script>
