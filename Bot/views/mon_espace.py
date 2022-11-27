@@ -47,7 +47,8 @@ class MySpaceView:
         self.login_success(sender_id, "string", lang)
 
     def my_money(self, sender_id, data, lang):
+        money = str(data) if data != None else "0"
         chat.send_message(
             sender_id,
-            translate("mon_argent_actuel", lang) + " " + str(data) + " " + "f-Ar",
+            translate("mon_argent_actuel", lang) + " " + money + " " + "f-Ar",
         )
