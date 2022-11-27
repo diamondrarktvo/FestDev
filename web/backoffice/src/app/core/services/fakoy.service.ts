@@ -2,7 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { CreateContenu, CreatePlaceModel, FakoModel, PlaceModel, UtilisateurModel } from "../models/fakoy.model";
+import { CreateContenu, CreatePlaceModel, FakoModel, 
+    PlaceModel, UtilisateurModel } from "../models/fakoy.model";
 
 @Injectable({
     providedIn: 'root'
