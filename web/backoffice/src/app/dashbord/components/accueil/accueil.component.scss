@@ -1,0 +1,18 @@
+#accueil {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    animation: .7s linear animationOnInit;
+}
+.thead-success {
+  background-color: #495c1a;
+  color: white;;
+}
+th, td {
+  color: white;
+}
+.other {
+  background-color: #6b956b;
+}
+img {
+  margin: auto;
+}

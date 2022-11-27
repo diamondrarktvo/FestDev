@@ -1,0 +1,7 @@
+<app-header></app-header>
+<div class="body_dashbord">
+    <app-sidebar (statusSidebarToEmit)="onChangeStatusSidebar($event)"></app-sidebar>
+    <div class="rwbd" [class]="statusSidebar ? 'rwbd_width_true':'rwbd_width_false'">
+        <router-outlet></router-outlet>
+    </div>
+</div>
