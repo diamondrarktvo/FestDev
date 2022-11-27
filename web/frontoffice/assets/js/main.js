@@ -124,3 +124,48 @@ async function getPollutionAroundThisPosition(position) {
 }
 
 //267af3ba-fc10-4cb6-a507-4f1b6e4dc982
+
+let locations = [
+  ["-18.8547072", "47.4873845"],
+  ["-18.8547092", "47.4873896"],
+  ["-18.8547887", "46.4873856"],
+  ["-18.854769", "47.4873856"],
+];
+
+function initMap() {
+  var center = { lat: -18.8547072, lng: 47.4873856 };
+  var map = new google.maps.Map(document.getElementById("div__map"), {
+    zoom: 2,
+    center: center,
+    mapTypeId: "satellite",
+  });
+  var marker = new google.maps.Marker({
+    position: center,
+    map: map,
+  });
+
+  var infowindow = new google.maps.InfoWindow({});
+  var marker, count;
+  for (count = 0; count < locations.length; count++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(
+        locations[count][0],
+        locations[count][1],
+        locations[count][2],
+        locations[count][3]
+      ),
+      map: map,
+      title: locations[count][0],
+    });
+    google.maps.event.addListener(
+      marker,
+      "click",
+      (function (marker, count) {
+        return function () {
+          infowindow.setContent(locations[count][0]);
+          infowindow.open(map, marker);
+        };
+      })(marker, count)
+    );
+  }
+}

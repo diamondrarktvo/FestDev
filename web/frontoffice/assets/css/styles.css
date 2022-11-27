@@ -725,8 +725,15 @@ main {
 }
 
 .div__map {
-  width: 350px;
-  height: 100%;
+  width: 340px;
+  margin-left: 12px;
+  height: 340px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.8) 50%
+  );
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 55em) {
