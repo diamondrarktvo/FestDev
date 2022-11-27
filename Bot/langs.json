@@ -87,5 +87,10 @@
     "fr": "Vous êtes maintenant déconnecté",
     "mg": "Tafiala ianao ankehitriny",
     "en": "You are now logged out"
+  },
+  "pick_up_point": {
+    "fr": "Voici donc tout les points de ramassage de votre ville existant",
+    "mg": "Ireto avy  ary  ireo toeram-pandraofana misy eo amin'ny toerana misy anao",
+    "en": "Here are all the pick-up points of your existing city"
   }
 }

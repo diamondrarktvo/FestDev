@@ -13,6 +13,8 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ParametresComponent } from './components/parametres/parametres.component';
 import { SupportComponent } from './components/support/support.component';
+import { EditSensibilisationComponent } from './components/edit-sensibilisation/edit-sensibilisation.component';
+import { EditActualiteComponent } from './components/edit-actualite/edit-actualite.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { SupportComponent } from './components/support/support.component';
     MessagesComponent,
     NotificationsComponent,
     ParametresComponent,
-    SupportComponent
+    SupportComponent,
+    EditSensibilisationComponent,
+    EditActualiteComponent
   ],
   imports: [
     CommonModule,
