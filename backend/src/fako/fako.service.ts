@@ -51,7 +51,7 @@ export class FakoService {
             'f.prix as prix', 'f.date_create as created_at', 
             'u.username as username', 't.nom as type_fako', 
             't.description as description',
-            'p.nom as nom_place', 'p.cord_x as cord_x',
+            'p.nom as nom_place', 'p.cord_x as cord_x', 'p.cord_y as cord_y',
             'p.id_Fokotany as fokontany_id'
         ])
         .innerJoin(Utilisateur, 'u', 'f.id_Utilisateur = u.id')
@@ -68,7 +68,7 @@ export class FakoService {
             'f.prix as prix', 'f.date_create as created_at', 
             'u.username as username', 't.nom as type_fako', 
             't.description as description',
-            'p.nom as nom_place', 'p.cord_x as cord_x',
+            'p.nom as nom_place', 'p.cord_x as cord_x', 'p.cord_y as cord',
             'p.id_Fokotany as fokontany_id'
         ])
         .innerJoin(Utilisateur, 'u', 'f.id_Utilisateur = u.id')
@@ -86,7 +86,7 @@ export class FakoService {
             'f.prix as prix', 'f.date_create as created_at', 
             'u.username as username', 't.nom as type_fako', 
             't.description as description',
-            'p.nom as nom_place', 'p.cord_x as cord_x',
+            'p.nom as nom_place', 'p.cord_x as cord_x', 'p.cord_y as cord',
             'p.id_Fokotany as fokontany_id'
         ])
         .innerJoin(Utilisateur, 'u', 'f.id_Utilisateur = u.id')
@@ -104,7 +104,7 @@ export class FakoService {
             'f.prix as prix', 'f.date_create as created_at', 
             'u.username as username', 't.nom as type_fako', 
             't.description as description',
-            'p.nom as nom_place', 'p.cord_x as cord_x',
+            'p.nom as nom_place', 'p.cord_x as cord_x', 'p.cord_y as cord',
             'p.id_Fokotany as fokontany_id'
         ])
         .innerJoin(Utilisateur, 'u', 'f.id_Utilisateur = u.id')
