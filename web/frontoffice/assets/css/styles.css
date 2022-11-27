@@ -724,8 +724,17 @@ main {
   box-shadow: 1px 1px 8px rgb(110, 108, 108);
 }
 
-.div__map {
-  width: 340px;
+.div__image_pollution {
+  margin-left: 10px;
+}
+.div__image_pollution img {
+  border-radius: 15px;
+}
+
+.div__map,
+#div__map {
+  width: 660px;
+  color: black;
   margin-left: 12px;
   height: 340px;
   background: linear-gradient(

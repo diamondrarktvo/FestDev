@@ -150,9 +150,7 @@ function initMap() {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(
         locations[count][0],
-        locations[count][1],
-        locations[count][2],
-        locations[count][3]
+        locations[count][1]
       ),
       map: map,
       title: locations[count][0],
