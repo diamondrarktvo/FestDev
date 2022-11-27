@@ -17,6 +17,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
     <script>
       document.documentElement.className = "js";
       var supportsCssVars = function () {
@@ -321,32 +325,40 @@
           <h3 class="content__title">Actualité</h3>
           <div class="content__actuality">
             <img
-              src="https://via.placeholder.com/300x200"
+              src="assets/images/actu_1.jpg"
               alt="actualité img"
+              width="300"
+              height="200"
+              style="border-radius: 8px"
             />
             <h4 class="description__actuality">
-              Fugiat in ut proident amet qui ea enim incididunt sunt tempor.
-              Deserunt voluptate consequat fugiat eu nostrud labore quis
-              laborum. Id enim incididunt sint id dolore irure dolore
-              adipisicing excepteur consequat duis enim veniam labore. Ipsum
-              occaecat aute mollit est aliqua. Reprehenderit cillum sint sunt ad
-              deserunt in commodo deserunt deserunt. Elit fugiat dolore do
-              exercitation est culpa.
+              Sharm el-Sheikh, Egypt, 17 November – The UN Climate Change
+              High-Level Champions took stock of the contribution of non-State
+              actors at the UN Climate Change Conference COP27 at a special
+              event this evening, wrapping-up a two week programme of more than
+              50 events. Across the two weeks, the Champions supported and
+              delivered a wide range of actions, announcements, and events
+              across mitigation, adaptation finance and equity, with a clear
+              focus on implementation....
             </h4>
           </div>
           <div class="content__actuality">
             <h4 class="description__actuality">
-              Fugiat in ut proident amet qui ea enim incididunt sunt tempor.
-              Deserunt voluptate consequat fugiat eu nostrud labore quis
-              laborum. Id enim incididunt sint id dolore irure dolore
-              adipisicing excepteur consequat duis enim veniam labore. Ipsum
-              occaecat aute mollit est aliqua. Reprehenderit cillum sint sunt ad
-              deserunt in commodo deserunt deserunt. Elit fugiat dolore do
-              exercitation est culpa.
+              Sharm El-Sheikh, 15 November 2022 – Senior officials from several
+              governments, the UN Environment Program (UNEP) and the UN
+              Framework Convention on Climate Change (UNFCCC) launched a new
+              five-year work programme at COP27 today to promote climate
+              technology solutions in developing countries. The Technology
+              Executive Committee (TEC) and programme to accelerate the
+              deployment of transformative climate technologies that are
+              urgently required to tackle climate change.
             </h4>
             <img
-              src="https://via.placeholder.com/300x200"
+              src="assets/images/actu_2.jpg"
               alt="actualité img"
+              width="300"
+              height="200"
+              style="border-radius: 8px"
             />
           </div>
         </div>
@@ -407,16 +419,14 @@
         </div>
         <div class="content__inner">
           <h2 class="content__title">Map</h2>
-          <h6 class="content__subtitle">
-            Vous trouvez ici nos points de ramassages!!
-          </h6>
           <div id="div__map"></div>
         </div>
         <div class="content__inner">
           <h2 class="content__title">Statistique</h2>
-          <h3 class="content__subtitle">
-            The gabby priority handles into the deadly dot.
-          </h3>
+          <div
+            id="myChart"
+            style="width: 100%; max-width: 600px; height: 320px"
+          ></div>
         </div>
         <div class="content__inner">
           <h2 class="content__title">Pollution</h2>
@@ -446,7 +456,6 @@
       </div>
     </main>
 
-    Dominick
     <script
       async
       defer

@@ -167,3 +167,27 @@ function initMap() {
     );
   }
 }
+
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ["Dechets", "taux"],
+    ["Plastiques", 54.8],
+    ["Sachets", 48.6],
+    ["Déchets industriels", 44.4],
+    ["Déchets organiques", 23.9],
+    ["Métaux", 14.5],
+  ]);
+
+  var options = {
+    title: "Statistique des déchets reciclés en ce moment :",
+    is3D: true,
+  };
+
+  var chart = new google.visualization.PieChart(
+    document.getElementById("myChart")
+  );
+  chart.draw(data, options);
+}
