@@ -788,7 +788,7 @@ main {
     margin-top: 12em;
   }
   .content__close {
-    top: 60em;
+    top: 53em;
   }
 
   .content__actuality,
@@ -796,12 +796,19 @@ main {
     flex-direction: column;
   }
   .content__actuality .description__actuality,
-  .content__sensibilisation,
-  .description__sensibilisation {
+  .content__sensibilisation .description__sensibilisation {
     width: 80%;
     margin-top: 12px;
     margin-left: 0px;
     text-align: center;
+  }
+  .content__sensibilisation {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .content__sensibilisation .description__sensibilisation {
+    margin-top: 0;
   }
   .content__application {
     justify-content: center;
@@ -820,5 +827,11 @@ main {
     width: 62%;
     margin-top: 6px;
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 365px) {
+  .content__close {
+    top: 57em;
   }
 }
