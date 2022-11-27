@@ -13,13 +13,13 @@ controller = PresentationController()
 @ampalibe.command("/sensibilisation")
 def sensibilisation(sender_id, **ext):
     chat.send_action(sender_id, Action.mark_seen)
-    controller.get_content(sender_id, t="sensibilisation")
+    controller.get_content(sender_id, t="sensibilisation", lang=ext["lang"])
 
 
 @ampalibe.command("/actualite")
 def actualites(sender_id, **ext):
     chat.send_action(sender_id, Action.mark_seen)
-    controller.get_content(sender_id, t="actualite")
+    controller.get_content(sender_id, t="actualite", lang=ext["lang"])
 
 
 @ampalibe.command("/apk")
@@ -48,3 +48,9 @@ def deconnexion(sender_id, **ext):
     query.set_lang(sender_id, None)
     chat.persistent_menu(sender_id, persistentu_first("fr"))
     chat.send_message(sender_id, translate("deconnexion_f", ext["lang"]))
+
+
+@ampalibe.command("/ramassage")
+def pick_up_point(sender_id, **ext):
+    chat.send_action(sender_id, Action.mark_seen)
+    controller.pick_up_point(sender_id)

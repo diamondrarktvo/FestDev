@@ -21,10 +21,10 @@ def persistentu_first(lang):
         ),
         Button(
             type=Type.postback,
-            title="🚮" + translate("mon_espace", lang),
+            title="🏘" + translate("mon_espace", lang),
             payload="/my_space",
         ),
-        Button(type=Type.postback, title="🚮" + translate("apk", lang), payload="/apk"),
+        Button(type=Type.postback, title="📲" + translate("apk", lang), payload="/apk"),
     ]
 
 
@@ -57,7 +57,7 @@ def persistent_menu_connect(lang):
         ),
         Button(
             type=Type.postback,
-            title="📱" + translate("deconnexion", lang),
+            title="🔚" + translate("deconnexion", lang),
             payload="/deconnexion",
         ),
     ]

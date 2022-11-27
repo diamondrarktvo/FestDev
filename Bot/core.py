@@ -27,7 +27,7 @@ def get_started(sender_id, **ext):
 
 
 @ampalibe.command("/")
-def main(sender_id, lang, **ext):
+def main(sender_id, cmd , lang, **ext):
     chat.send_action(sender_id, Action.mark_seen)
     if not lang:
         return choix_lang(sender_id)
