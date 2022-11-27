@@ -68,17 +68,17 @@ function getPollutionAroundMe(data) {
             <h5>Last day :</h5>
             <div class="all__last_results">
                 <div class="one__last_result">
-                <h4>Vendredi</h4>
+                <h4>Samedi</h4>
                 <span class="taux__last_day">24</span>
                 </div>
 
                 <div class="one__last_result">
-                <h4>Jeudi</h4>
+                <h4>Vendredi</h4>
                 <span class="taux__last_day">32</span>
                 </div>
 
                 <div class="one__last_result">
-                <h4>Mercredi</h4>
+                <h4>Jeudi</h4>
                 <span class="taux__last_day">44</span>
                 </div>
             </div>
